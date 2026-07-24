@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header / Hero Section */
+    header {
+      background: #0d1117;
+      color: #fff;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #8b949e;
+    }
+
+    /* Sections */
+    section {
+      padding: 40px 0;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #0066cc;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .project-card {
+      background: #fff;
+      border: 1px solid #e1e4e8;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: #0066cc;
+    }
+
+    /* Skills List */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      margin-top: 15px;
+    }
+
+    .skills-list li {
+      background: #e1e4e8;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background: #0d1117;
+      color: #8b949e;
+      margin-top: 40px;
+    }
+
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Hello, I'm [Your Name]</h1>
+      <p>Developer | Creator | Problem Solver</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Welcome to my personal website! I build projects, learn new tech, and share my journey here.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>HTML & CSS</li>
+        <li>JavaScript</li>
+        <li>Git & GitHub</li>
+        <li>Python</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Project Title 1</h3>
+          <p>A short description of what this project does and the tech used to make it.</p>
+        </div>
+        <div class="project-card">
+          <h3>Project Title 2</h3>
+          <p>A short description of what this project does and the tech used to make it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <p>Feel free to reach out to me via email or social links!</p>
+      <p style="margin-top: 10px;">
+        📧 Email: <a href="mailto:your.email@example.com">your.email@example.com</a>
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 kastineaugak. Hosted on GitHub Pages.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
