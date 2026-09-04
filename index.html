@@ -1,174 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <style>
-    /* Global Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kastine Augak | CTO & Software Architect</title>
+    <meta name="description" content="Official developer portfolio of Kastine Augak (Kamulindwa Augustine), CTO at SomaGPT, Co-founder of Apex Web Services, and software architect based in Fort Portal, Uganda.">
+    <meta name="author" content="Kastine Augak">
+    <link rel="stylesheet" href="style.css">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kastine Augak",
+      "alternateName": "Kamulindwa Augustine",
+      "jobTitle": "Chief Technology Officer",
+      "worksFor": [
+        {
+          "@type": "Organization",
+          "name": "SomaGPT"
+        },
+        {
+          "@type": "Organization",
+          "name": "Apex Web Services"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Fort Portal",
+        "addressCountry": "Uganda"
+      },
+      "url": "https://kastineaugak.github.io",
+      "sameAs": [
+        "https://linktr.ee/kastineaugak",
+        "https://x.com/kastineaugak",
+        "https://github.com/kastineaugak"
+      ]
     }
-
-    body {
-      background-color: #f8f9fa;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    /* Container */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header / Hero Section */
-    header {
-      background: #0d1117;
-      color: #fff;
-      padding: 60px 0;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #8b949e;
-    }
-
-    /* Sections */
-    section {
-      padding: 40px 0;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #0066cc;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .project-card {
-      background: #fff;
-      border: 1px solid #e1e4e8;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-
-    .project-card h3 {
-      margin-bottom: 10px;
-      color: #0066cc;
-    }
-
-    /* Skills List */
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      list-style: none;
-      margin-top: 15px;
-    }
-
-    .skills-list li {
-      background: #e1e4e8;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      background: #0d1117;
-      color: #8b949e;
-      margin-top: 40px;
-    }
-
-    a {
-      color: #58a6ff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    </script>
 </head>
-<body>
+<body class="theme-home">
+    <header class="navbar">
+        <div class="logo">Kastine Augak</div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="ventures.html">Ventures</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-  <header>
-    <div class="container">
-      <h1>Hello, I'm [Your Name]</h1>
-      <p>Developer | Creator | Problem Solver</p>
-    </div>
-  </header>
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <span class="badge">Chief Technology Officer & Developer</span>
+                <h1>Kamulindwa Augustine (Kastine Augak)</h1>
+                <p class="subtitle">Software Architect, Enterprise Systems Specialist, and Musician based in Fort Portal, Uganda.</p>
+                <p class="description">Building localized AI platforms, scalable network security architectures, and enterprise web engines bridging technology across East Africa.</p>
+                <div class="cta-buttons">
+                    <a href="ventures.html" class="btn btn-primary">Explore Ventures</a>
+                    <a href="contact.html" class="btn btn-secondary">Direct Contact</a>
+                </div>
+            </div>
+        </section>
 
-  <div class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        Welcome to my personal website! I build projects, learn new tech, and share my journey here.
-      </p>
-    </section>
+        <section class="highlights-section">
+            <div class="container">
+                <h2>Engineering & Leadership</h2>
+                <p class="section-intro">Core systems engineered to address education, verification, and web infrastructure challenges.</p>
+                
+                <div class="grid">
+                    <div class="card">
+                        <span class="tag">Flagship Platform</span>
+                        <h3>SomaGPT</h3>
+                        <p>Directing technical architecture for multi-language AI integration in African educational landscapes, localized in speech models like Rutooro, Luganda, and Runyankole.</p>
+                        <a href="ventures.html#somagpt">System Architecture &rarr;</a>
+                    </div>
+                    <div class="card">
+                        <span class="tag">Enterprise Infrastructure</span>
+                        <h3>Apex Web Services</h3>
+                        <p>Deploying reliable web architectures, high-performance hosting, and customized enterprise platforms for client ecosystems.</p>
+                        <a href="ventures.html#apex">Explore Infrastructure &rarr;</a>
+                    </div>
+                    <div class="card">
+                        <span class="tag">Verification Engine</span>
+                        <h3>Iverify AI</h3>
+                        <p>Automated verification tooling focused on data structural compliance, automated checking mechanisms, and digital asset security.</p>
+                        <a href="ventures.html#iverify">System Specs &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        <li>HTML & CSS</li>
-        <li>JavaScript</li>
-        <li>Git & GitHub</li>
-        <li>Python</li>
-      </ul>
-    </section>
+        <section class="biography-teaser">
+            <div class="container">
+                <h2>Recognized Innovation</h2>
+                <p>Awarded by the Uganda Communications Commission (UCC) for deploying Soma Analytics at Mbarara High School, transforming administrative workflows, dynamic timetabling, and scheme tracking through automated software engines.</p>
+                <a href="about.html" class="btn btn-secondary">Read Full Professional Biography</a>
+            </div>
+        </section>
+    </main>
 
-    <section id="projects">
-      <h2>Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Project Title 1</h3>
-          <p>A short description of what this project does and the tech used to make it.</p>
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>Kastine Augak</h3>
+                <p>CTO at SomaGPT | Co-founder of Apex Web Services. Building meaningful digital infrastructure in Fort Portal, Uganda.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Biography</a></li>
+                    <li><a href="ventures.html">Ventures & Stack</a></li>
+                    <li><a href="blog.html">Technical Blog</a></li>
+                    <li><a href="contact.html">Contact Hub</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ventures</h4>
+                <ul>
+                    <li><a href="ventures.html#somagpt">SomaGPT</a></li>
+                    <li><a href="ventures.html#apex">Apex Web Services</a></li>
+                    <li><a href="ventures.html#iverify">Iverify AI</a></li>
+                    <li><a href="ventures.html#llama">Llama GPT Deployments</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://linktr.ee/kastineaugak" target="_blank" rel="noopener">Official Linktree</a></li>
+                    <li><a href="contact.html">Send Message</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="project-card">
-          <h3>Project Title 2</h3>
-          <p>A short description of what this project does and the tech used to make it.</p>
+        <div class="bottom-bar">
+            <div class="container">
+                <p>&copy; 2026 Kamulindwa Augustine (Kastine Augak). Built cleanly without external bloat.</p>
+            </div>
         </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Get in Touch</h2>
-      <p>Feel free to reach out to me via email or social links!</p>
-      <p style="margin-top: 10px;">
-        📧 Email: <a href="mailto:your.email@example.com">your.email@example.com</a>
-      </p>
-    </section>
-  </div>
-
-  <footer>
-    <div class="container">
-      <p>© 2026 kastineaugak. Hosted on GitHub Pages.</p>
-    </div>
-  </footer>
-
+    </footer>
 </body>
 </html>
