@@ -1,0 +1,32 @@
+name: Article feedback and discussion
+description: Comment on an article, suggest a correction, or report a source issue
+title: "Article feedback: "
+labels: ["article-feedback"]
+body:
+  - type: input
+    id: article
+    attributes:
+      label: Article URL
+      description: Paste the exact article link.
+      placeholder: https://augak.github.io/kastineaugak.github.io/blog.html?post=...
+    validations:
+      required: true
+  - type: dropdown
+    id: feedback_type
+    attributes:
+      label: Feedback type
+      options:
+        - General comment
+        - Correction or factual concern
+        - Source or citation issue
+        - Copyright or permission concern
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: message
+    attributes:
+      label: Your feedback
+      description: Be specific and include supporting links where relevant.
+    validations:
+      required: true
