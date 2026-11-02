@@ -1,27 +1,47 @@
 # Publish to the Kastine Augak Blog
 
-This website uses GitHub as its publishing source. Blogger and MediaRecap are not involved.
+The publication is hosted on GitHub Pages. Blogger and MediaRecap are not involved.
 
-1. Open the repository and choose Add file → Create new file.
-2. Create a file in `posts/` (example: `posts/my-first-article.html`) and write the full article in HTML.
-3. Add a matching record to `posts.json` inside the `posts` array.
-4. Set `status` to `published` when the article is ready. Commit to the `main` branch.
-5. GitHub Pages rebuilds the site; the article appears on the blog and opens as a full article page.
+## Editorial workflow
 
-Example record:
+1. Contributors fork the repository and add an article in `posts/` using `posts/article-template.html`.
+2. They submit a pull request to `main`; the PR checklist asks for author information, sources, rights and disclosures.
+3. The editor verifies the claims, references, author background where relevant, and copyright permissions.
+4. Only after approval does the editor add a `published` record to `posts.json`. Drafts are not shown publicly.
+5. For article-specific comments and reactions, create a GitHub feedback issue for the article and add its URL as `discussionUrl` in the post record. Readers can comment and use GitHub reactions on that issue.
+
+## Example post record
+
 ```json
 {
-  "slug": "my-first-article",
-  "title": "My First Article",
+  "slug": "sample-article",
+  "title": "Sample Article Title",
   "date": "2026-11-02",
-  "author": "Kastine Augak",
+  "author": "Contributor Name",
+  "authorCredentials": "A short, checked description of relevant experience.",
+  "authorProfile": "https://example.org/author-profile",
   "tags": ["Technology", "Uganda"],
   "excerpt": "A concise summary of the article.",
   "status": "draft",
-  "content": "<h2>Introduction</h2><p>Write the full article here.</p>"
+  "content": "<h2>Introduction</h2><p>Full article HTML.</p>",
+  "sources": [
+    {
+      "title": "Source title",
+      "publisher": "Publisher or institution",
+      "url": "https://example.org/source",
+      "accessed": "2026-11-02"
+    }
+  ],
+  "rightsHolder": "Contributor Name",
+  "license": "All rights reserved",
+  "discussionUrl": "https://github.com/Augak/kastineaugak.github.io/issues/1"
 }
 ```
 
-Change draft to published when ready. Use unique lowercase slugs. Keep JSON valid and escape quotation marks inside strings. Public display includes only published records. Write original, accurate, properly sourced articles; do not invent reporting, quotes, product tests or research findings.
+Use real source URLs and exact rights information. Do not invent an author credential, verification, source, copyright claim, research result, interview, test, or quotation. A source link supports the specific claims it contains; it does not automatically verify the author's identity or qualifications. The contributor remains the copyright owner unless a valid agreement says otherwise.
 
-This first version is a static GitHub-powered publication, not a private in-page editor. It requires no external CMS or API token.
+## Reader tools
+
+Each published article supports HTML and plain-text downloads, browser print / Save as PDF, native share where supported, and GitHub discussion links. The discussion URL is optional until an editor creates the article's feedback issue.
+
+This is a static GitHub-powered site. It does not currently provide a private in-page contributor dashboard or automatic AI publishing.
