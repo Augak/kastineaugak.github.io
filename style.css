@@ -439,3 +439,48 @@ h2 {
         animation-iteration-count: 1 !important;
     }
 }
+
+/* Compact, standard-sized article action buttons */
+.article-actions {
+    align-items: center;
+    gap: 8px;
+}
+.article-actions button,
+.article-actions a {
+    width: auto;
+    min-height: 36px;
+    padding: 7px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #334155;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: center;
+    white-space: normal;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.article-actions button:hover,
+.article-actions a:hover {
+    border-color: #1e293b;
+    background: #1e293b;
+    color: #ffffff;
+}
+.article-actions button:focus-visible,
+.article-actions a:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 2px;
+}
+@media (max-width: 520px) {
+    .article-actions {
+        gap: 8px;
+    }
+    .article-actions button,
+    .article-actions a {
+        min-height: 34px;
+        padding: 7px 10px;
+        font-size: 0.82rem;
+    }
+}
