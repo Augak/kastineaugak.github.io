@@ -1,7 +1,6 @@
 name: Article feedback and discussion
 description: Comment on an article, suggest a correction, or report a source issue
 title: "Article feedback: "
-labels: ["article-feedback"]
 body:
   - type: input
     id: article
