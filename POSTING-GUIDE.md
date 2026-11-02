@@ -34,7 +34,7 @@ The publication is hosted on GitHub Pages. Blogger and MediaRecap are not involv
   ],
   "rightsHolder": "Contributor Name",
   "license": "All rights reserved",
-  "discussionUrl": "https://github.com/Augak/kastineaugak.github.io/issues/1"
+  "discussionUrl": "https://github.com/Augak/kastineaugak.github.io/issues/REPLACE_WITH_ISSUE_NUMBER"
 }
 ```
 
