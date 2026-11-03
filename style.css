@@ -551,3 +551,7 @@ h2 {
 .footer>.container:not(.footer-grid){max-width:1100px;padding:18px 20px;text-align:right}
 .footer>.container:not(.footer-grid) p{margin:0;text-align:right}
 @media(max-width:600px){.footer>.container:not(.footer-grid),.footer>.container:not(.footer-grid) p{text-align:left}}
+
+
+/* Lightweight AMP reading link shown on published articles. */
+.amp-version-note{margin:12px 0 22px;font-size:.94rem}.amp-version-note a{color:var(--accent,#176b58);font-weight:600;text-decoration:underline;text-underline-offset:3px}
