@@ -34,7 +34,11 @@
       ],
       "discussionUrl": "https://github.com/Augak/kastineaugak.github.io/issues/3",
       "rightsHolder": "Kastine Augak",
-      "license": "All rights reserved. Permission required for republication."
+      "license": "All rights reserved. Permission required for republication.",
+      "coverImage": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=75",
+      "coverAlt": "Developer workspace with a laptop displaying source code",
+      "mediaCredit": "Image via Unsplash",
+      "mediaCreditUrl": "https://unsplash.com"
     }
   ]
 }
