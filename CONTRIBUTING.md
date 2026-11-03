@@ -1,38 +1,31 @@
-# Contribute to the Kastine Augak Journal
+# Welcome to the Kastine Augak Journal
 
-Thank you for offering to contribute. This is an independently edited publication hosted on GitHub Pages. Submissions are reviewed before publication; sending an article does not guarantee acceptance.
+We publish useful ideas, original research, practical experience and thoughtful perspectives on technology, innovation, education, software, digital media and life in East Africa.
 
-## How to submit
+You do not need a famous name or a large following to contribute. Students, researchers, developers, educators, creators, professionals and curious thinkers are welcome.
 
-1. Read the editorial and rights requirements below.
-2. Fork the public repository: https://github.com/Augak/kastineaugak.github.io
-3. Add your article as `posts/your-unique-article-slug.html`. Start from `posts/article-template.html`.
-4. Submit a pull request to the `main` branch. Include the article title and a short summary in the PR description.
-5. An editor will review factual accuracy, sources, originality, safety, accessibility, and rights before publishing. Do not set an article to published yourself.
+## Ideas readers may find useful
 
-## Required author information
+- A technology tool you have tested and what it does well or poorly.
+- A practical lesson from building a project, business or community solution.
+- Research explained in clear language, with links to the original work.
+- Digital skills, cybersecurity, education and local innovation.
+- Tutorials, product experiences, creative technology and thoughtful opinion.
 
-Include your real byline, a short author biography, and (where relevant) professional qualifications, institutional affiliation, portfolio, ORCID, or other profile links. Credentials and affiliations may be checked with the named institution or public professional record. Do not claim a qualification, award, job, test, interview, or research result that cannot be substantiated.
+## What contributors receive
 
-## Sources and verification
+Accepted articles carry the contributor's byline and may include a short biography and links to professional, portfolio or research profiles. Published work has a shareable public page, reader discussions and a place in the publication archive. Selected work may also be featured in newsletter editions.
 
-- Cite primary sources first: official documents, datasets, legislation, research papers, standards, and direct statements.
-- Provide the source title, publisher/organization, stable URL, and publication/access date where available.
-- Attribute quotations, data, images, charts, and third-party material.
-- Separate established facts, interpretation, opinion, and unverified claims.
-- Never fabricate references, interviews, statistics, experiments, or product testing.
-- Editors may reject or request corrections to unsupported or misleading claims.
+## Share your article
 
-## Copyright and permissions
+Use the public submission form: https://augak.github.io/kastineaugak.github.io/submit.html
 
-Every submission must state the copyright owner / rights holder, proposed reuse licence (for example, All rights reserved or CC BY 4.0), and confirm that the contributor owns the work or has written permission to submit and publish it. Include permission and attribution details for every third-party image, chart, excerpt, dataset, or other protected material.
+Include a clear title, a short summary, your name and any source links that help readers verify the information. An editor reviews submissions before publication and may contact you with questions or suggestions. Sending an article does not automatically publish it.
 
-Submitting an article grants the site a non-exclusive permission to host, display, format, promote, and archive the accepted article. It does not transfer copyright. The contributor remains responsible for rights they claim. Editors may add source notes and corrections but will not invent credentials or imply that a source verifies more than it actually does.
+## Help readers trust your work
 
-## Editorial standards
+Write in your own voice. Explain unfamiliar terms, distinguish evidence from opinion, link to original sources, and credit images or material created by others. Do not invent statistics, quotations, interviews, qualifications or product tests. Submit work you own or have permission to share.
 
-Original, respectful, accessible writing; clear headlines; useful headings; no plagiarism, undisclosed advertising, defamation, hate, or unlawful material. Disclose conflicts of interest, sponsorship, AI assistance where material, and relevant financial relationships. Corrections should be reported promptly.
+You retain ownership of your writing. For an accepted article, you give the publication permission to host, display, format, promote and archive it with your byline.
 
-## Article record fields
-
-When an editor adds the article to `posts.json`, include `authorCredentials`, `authorProfile`, `sources`, `rightsHolder`, and `license` where applicable. These fields are displayed separately so readers can distinguish author background, cited evidence, and copyright terms.
+Keep learning, keep creating and keep sharing. A clear explanation or a practical idea can make a real difference to someone else.
