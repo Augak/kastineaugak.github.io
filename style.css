@@ -496,3 +496,26 @@ h2 {
 @media print{.navbar,.footer,.blog-toolbar,.blog-categories,.article-actions,.article-social,.back-to-blog{display:none!important}.full-article{border:0;max-width:none}.article-body{font-size:12pt}}
 
 .blog-hero-media{margin:22px 0 20px;max-width:100%;overflow:hidden;border-radius:4px}.blog-hero-media img{display:block;width:100%;height:clamp(190px,32vw,360px);object-fit:cover}.blog-hero-media figcaption{padding:6px 2px;color:#64748b;font-size:.78rem}.blog-hero-media a{color:#1d4ed8}
+
+/* Public engagement and social controls */
+.social-icon-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+.social-icon-row a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid #64748b;border-radius:50%;font-size:.88rem;font-weight:800;text-decoration:none;color:inherit;transition:background .18s ease,color .18s ease,transform .18s ease}
+.social-icon-row a:hover{background:#1e293b;color:#fff;transform:translateY(-2px)}
+.article-engagement{display:flex;flex-wrap:wrap;gap:18px;padding:14px 0;margin-top:25px;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;color:#475569;font-size:.88rem}
+.article-engagement strong{color:#0f172a}
+.article-actions button{gap:7px}
+.article-actions button svg{flex:none}
+.reaction-area,.discussion-section{margin-top:28px;padding-top:20px;border-top:1px solid #e2e8f0}
+.reaction-buttons{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.reaction-buttons button,.discussion-section form button{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 13px;border:1px solid #cbd5e1;border-radius:3px;background:#f8fafc;color:#1e293b;font:600 .86rem inherit;cursor:pointer}
+.reaction-buttons button:hover,.discussion-section form button:hover{background:#e2e8f0}
+.discussion-section>p{color:#64748b;font-size:.9rem}
+.discussion-section form{display:grid;gap:8px;margin:18px 0 24px;max-width:650px}
+.discussion-section form label{font-weight:650;color:#334155}
+.discussion-section form input,.discussion-section form textarea{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:3px;font:inherit;background:#fff}
+.discussion-section form button{justify-self:start;background:#1e293b;color:#fff;border-color:#1e293b}
+.public-comment{padding:14px 0;border-bottom:1px solid #e2e8f0}
+.public-comment strong{color:#0f172a}.public-comment time{display:block;font-size:.76rem;color:#64748b;margin-top:2px}
+.public-comment p{margin:8px 0 0;line-height:1.65;overflow-wrap:anywhere}
+.comment-empty{color:#64748b;font-size:.9rem}
+@media(max-width:600px){.article-actions button{flex:0 1 calc(50% - 6px)!important}.article-engagement{gap:10px;font-size:.82rem}.reaction-buttons button{font-size:.78rem}}
