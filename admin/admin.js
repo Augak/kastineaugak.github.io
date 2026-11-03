@@ -13,6 +13,8 @@ async function verifySession(){
  $("login-panel").hidden=true;$("desk-panel").hidden=false;$("desk-user").textContent="Signed in as "+email;
  await loadSubmissions();
 }
+$("show-signup").addEventListener("click",()=>{$("signup-form").hidden=!$("signup-form").hidden});
+$("signup-form").addEventListener("submit",async e=>{e.preventDefault();const email=$("signup-email").value.trim().toLowerCase();if(!allowed.includes(email)){message("signup-message","Only the two pre-authorized email addresses can create an administrator account.");return}const password=$("signup-password").value;if(password.length<8){message("signup-message","Use a password with at least 8 characters.");return}message("signup-message","Creating account…");const {data,error}=await supabase.auth.signUp({email,password,options:{emailRedirectTo:location.origin+"/admin/"}});if(error){message("signup-message",error.message);return}message("signup-message",data.session?"Account created. You can now sign in.":"Account created. Check your email to confirm it, then return here to sign in.");$("signup-form").reset()});
 $("login-form").addEventListener("submit",async e=>{e.preventDefault();message("login-message","Signing in…");const {error}=await supabase.auth.signInWithPassword({email:$("login-email").value.trim().toLowerCase(),password:$("login-password").value});if(error){message("login-message",error.message);return}await verifySession()});
 $("signout").addEventListener("click",async()=>{await supabase.auth.signOut();await verifySession()});
 document.querySelectorAll(".desk-tabs button").forEach(b=>b.addEventListener("click",()=>{currentFilter=b.dataset.status;document.querySelectorAll(".desk-tabs button").forEach(x=>x.classList.toggle("selected",x===b));loadSubmissions()}));
