@@ -21,7 +21,7 @@ const socials=[
  ["Google Business","G","https://www.google.com/maps/search/?api=1&query=Kastine+Augak"]
 ];
 const socialHtml=()=>'<div class="article-social"><p>Connect with Kastine Augak</p><div class="social-icon-row">'+socials.map(([n,i,u])=>'<a href="'+u+'" target="_blank" rel="noopener noreferrer" aria-label="'+n+'" title="'+n+'"><span aria-hidden="true">'+i+'</span></a>').join("")+'</div></div>';
-const visitorKey=()=>{let v="";try{v=localStorage.getItem("kastine_blog_visitor")||"";if(!v){v=crypto.randomUUID()+crypto.randomUUID().slice(0,8);localStorage.setItem("kastine_blog_visitor",v)}}catch(_){v=crypto.randomUUID()}return v};
+const makeId=()=>{try{return crypto.randomUUID()}catch(_){return "v"+Math.random().toString(36).slice(2)+Date.now().toString(36)}};const visitorKey=()=>{let v="";try{v=localStorage.getItem("kastine_blog_visitor")||"";if(!v){v=makeId()+makeId().slice(0,8);localStorage.setItem("kastine_blog_visitor",v)}}catch(_){v=makeId()+makeId().slice(0,8)}return v};
 const visitor=visitorKey();
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safeUrl=v=>{try{const u=new URL(v,location.href);return ["https:","http:"].includes(u.protocol)?u.href:"#"}catch(_){return "#"}};
