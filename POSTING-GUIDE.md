@@ -1,50 +1,45 @@
-# Kastine Augak — publishing platform operations
+# Publishing Desk — quick reference
 
-## Reader submissions and approval
-- Contributors submit original writing through `/submit.html`.
-- Submissions are private and enter the editorial queue as `pending`.
-- Administrators review the article, author details, sources, rights and any cover media.
-- For a pending submission, select **Approve & publish**. This records the editorial approval and invokes the secure publisher.
-- If publication is temporarily blocked (for example, if the GitHub secret is not configured), the record remains approved. Use **Publish now** on the approved item after fixing the configuration.
-- Successful publication writes the article to `posts.json` on the repository's `main` branch and records the published slug and timestamp.
-- Only verified, allowlisted administrator accounts may invoke this function.
+This note is for the publication team. Contributors and readers should use the public Contributor Hub instead: https://augak.github.io/kastineaugak.github.io/contributors.html
 
-## One-time publishing secret setup
-The Edge Function is deployed, but publishing remains disabled until a GitHub token is configured as a Supabase Edge Function secret.
+## Editorial queue
+1. Open the private desk at https://augak.github.io/kastineaugak.github.io/admin/.
+2. Review the article, author details, summary, source links and any media.
+3. Approve and publish only after the article is ready. Approval calls the secure `publish-approved-article` Edge Function.
+4. If publishing is blocked, check the function logs and the `GITHUB_TOKEN` Edge Function secret. The token must be limited to the `Augak/kastineaugak.github.io` repository with Contents read/write access.
+5. Confirm the article appears on the public blog and that its published slug and timestamp are recorded.
 
-1. Create a fine-grained GitHub personal access token restricted to `Augak/kastineaugak.github.io`.
-2. Grant **Contents: Read and write**. No organization-wide permissions are needed.
-3. In Supabase Dashboard, open **Project Settings → Edge Functions → Secrets** (or **Edge Functions → Secrets**).
-4. Add a secret named `GITHUB_TOKEN` with the token value. Do not paste it into this repository, this chat, or public JavaScript.
-5. Return to the admin desk and try publishing an approved test article.
+## Reader activity
+- Public comments appear immediately and can be hidden or restored in the Discussions tab.
+- Article reactions and comment reactions are stored in Supabase and counted from database records.
+- The analytics tab reports recorded blog activity; it does not claim to measure external social-network reach.
+- Moderate spam, abuse and requests to remove personal information promptly.
 
-The function also uses Supabase's server-provided URL and service-role environment variables. Do not expose those values in the website.
+## Newsletter workflow
+1. Draft an edition in the Newsletter tab.
+2. Publish it to the public archive. This step does not send email.
+3. Check the email status indicator before sending.
+4. Send only to active subscribers with recorded consent. Successful recipient deliveries are not repeated on retry.
+5. Review sent/failed/skipped counts and the delivery records.
 
-## Public discussions
-- Comments appear immediately without a GitHub account or Supabase sign-in.
-- Administrators can hide and restore comments in the Discussions tab.
-- Comments are public. Do not submit private information or sensitive personal details.
-- The site records page opens, reactions, downloads, share-button clicks, print-button clicks, discussion opens and comments.
+The email function uses Brevo and the following Edge Function secrets:
+- `BREVO_API_KEY`
+- `BREVO_SENDER_EMAIL` (the function also accepts the legacy spelling `BREVO_SENDERS_EMAIL`)
+- `BREVO_SENDER_NAME`
+- `NEWSLETTER_UNSUBSCRIBE_SECRET` (use a long random value)
 
-## Newsletter
-- The blog signup form records an email address and consent in the private `newsletter_subscribers` table.
-- The Newsletter tab is administrator-only and supports status management and CSV export.
-- **Email delivery is not connected yet.** Signups are being collected, but no campaign or welcome email is sent. Connect an email delivery provider and configure its API key, sender domain, unsubscribe handling and compliance settings before announcing an active email newsletter.
-- Subscriber exports contain personal data and must be stored and shared carefully. Removal requests can be handled by an administrator.
+The current function enforces a 300-email rolling 24-hour safety limit. Keep API keys and signing secrets in Supabase Edge Function secrets, never in GitHub files or browser code. Verify the sender address in Brevo before sending a real campaign.
 
-## Administrators
-Only these exact verified email addresses are allowlisted:
+## Admin access and privacy
+Only the two allowlisted administrator addresses can use the private desk:
 - `kastineaugak@gmail.com`
 - `kastineaugak4@gmail.com`
 
-Each administrator must create an account and verify the email before the database trigger grants the admin claim. Never share passwords or verification codes.
+Admin accounts must be verified and receive the server-managed admin claim. Never share passwords, verification codes, API keys or access tokens. Subscriber exports contain personal data and must be handled carefully.
 
-## Social profiles
-The website links to Facebook, Instagram, Threads, Pinterest, TikTok, YouTube, Bluesky, X, GitHub and Linktree. Google Business currently opens a Maps search, not a verified direct profile. Add LinkedIn only after confirming its exact public URL.
-
-## Security and privacy
-- Public subscribers cannot read the newsletter table; only verified administrators can read or manage it.
-- Article submissions, comments, reactions and analytics events use Row Level Security.
-- Never put a Supabase service-role key, secret API key or GitHub token in the public repository.
-- Review the privacy notice at `/privacy.html` and keep it aligned with any future email provider, analytics or storage integrations.
-- Public comments appear immediately, so administrators should moderate spam and abusive content.
+## Useful public pages
+- Articles: https://augak.github.io/kastineaugak.github.io/blog.html
+- Contributor Hub: https://augak.github.io/kastineaugak.github.io/contributors.html
+- Article submission: https://augak.github.io/kastineaugak.github.io/submit.html
+- Newsletter archive: https://augak.github.io/kastineaugak.github.io/newsletter-archive.html
+- Privacy notice: https://augak.github.io/kastineaugak.github.io/privacy.html
