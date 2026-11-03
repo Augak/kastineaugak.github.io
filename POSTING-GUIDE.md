@@ -1,20 +1,35 @@
-# Article submission and publishing
+# Article submissions, public discussions and publishing
 
-Readers and contributors can submit original articles using the form at `/submit.html`. Submissions are stored privately in Supabase with the status `pending`; they are not published automatically.
+## Reader submissions
+Readers and contributors can submit original articles using `/submit.html`. Submissions are stored privately in Supabase with status `pending`; they are not published automatically.
 
-## Editorial workflow
-1. A contributor submits title, name, contact email, summary, topics, article text and source URLs.
-2. An allowlisted administrator signs in at `/admin/` and reviews the submission.
-3. The administrator approves or rejects it and may leave an editorial note.
-4. An approved article still requires final fact-checking, formatting, rights review and inclusion in `posts.json` before it appears publicly on the blog.
-5. Published articles can optionally include `coverImage`, `coverAlt`, `coverVideo`, and `mediaCredit` fields in their `posts.json` record. Use media you own or have permission to publish.
-
-## Administrator access
-The two authorized addresses are:
+## Private administrator desk
+Open `/admin/` on the same website. Only these two exact email addresses can receive administrator privileges:
 - `kastineaugak@gmail.com`
 - `kastineaugak4@gmail.com`
 
-Create/invite these users under Supabase Authentication > Users. The database trigger assigns the admin claim only to these exact addresses. Public visitors cannot read or alter submissions. Never place a Supabase service-role key or GitHub token in this repository.
+The admin login page includes an account-creation flow for these addresses. Each account must verify its email before the database trigger assigns its administrator claim. Use a strong, unique password. The database policies—not the client-side form—enforce access.
 
-## Important publication boundary
-The dashboard records editorial decisions in Supabase. It does not yet push approved articles into GitHub automatically; that final publishing integration requires a server-side GitHub App/token secret and a protected publishing function.
+## Review workflow
+1. A contributor submits title, name, contact email, summary, topics, article text and source URLs.
+2. An administrator reviews the submission in the Submissions tab.
+3. Approve or reject and optionally leave an editorial note.
+4. Approval is an editorial decision, not automatic public publishing. Complete fact-checking, formatting, source and rights checks, then add the approved article to `posts.json`.
+5. Published article records may include `coverImage`, `coverAlt`, `coverVideo`, and `mediaCredit`. Use media you own or have permission to publish.
+
+## Public article engagement
+- Visitors can post comments without GitHub or Supabase accounts.
+- Public comments appear immediately and can be hidden/restored by an administrator in the Discussions tab.
+- Visitors can react once per article per browser storage key.
+- The site records article page opens, reactions, downloads, shares, print actions, discussion opens and comment submissions.
+- The Analytics tab shows 7-, 30-, 90-, 365-day and all-time summaries. These are site engagement metrics, not external social-platform reach or impressions.
+
+## Social profiles
+The site links to the profiles verified from the connected publishing brand: Facebook, Instagram, Threads, Pinterest, TikTok, YouTube, Bluesky, X, GitHub and Linktree. Google Business opens a Google Maps search for the brand. Add a confirmed LinkedIn profile URL when available.
+
+## Security notes
+- Submissions, reactions, events and comments use Row Level Security.
+- Only verified, allowlisted administrator accounts can read submissions, review analytics or moderate comments.
+- Never put a Supabase service-role key or GitHub token in this repository.
+- Public comments are intentionally visible to everyone. Administrators should moderate spam and abusive content.
+- The dashboard records approvals but does not yet push approved articles into GitHub automatically. That final publishing integration requires a protected server-side GitHub App/token secret and publishing function.
