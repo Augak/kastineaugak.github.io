@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="style.css?v=20261104d">
 </head><body class="theme-blog">
-<header class="navbar"><a class="logo" href="index.html">Kastine Augak</a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="ventures.html">Ventures</a><a href="blog.html" class="active" aria-current="page">Blog</a><a href="contact.html">Contact</a><a href="lite.html">Basic phone version</a></nav></header>
+<header class="navbar"><a class="logo" href="index.html">Kastine Augak</a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="ventures.html">Ventures</a><a href="blog.html" class="active" aria-current="page">Blog</a><a href="contact.html">Contact</a></nav></header>
 <main class="container page-content">
 <section class="blog-heading"><p class="blog-eyebrow">KASTINE AUGAK · JOURNAL</p><h1>Ideas, research & perspectives</h1><p class="intro">Independent writing on technology, innovation, software, AI, digital media and building useful technology in East Africa. Published articles also include automatically generated lightweight AMP reading pages for mobile visitors and slower connections.</p>
 <figure class="blog-hero-media"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=75" alt="Developer workspace with a laptop displaying source code" fetchpriority="high"><figcaption>Technology and software development · Image via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></figcaption></figure><div class="blog-actions"><a class="btn btn-primary" href="submit.html">Submit an article</a><a class="btn btn-secondary" href="about.html">About the publisher</a><a class="btn btn-secondary" href="newsletter-archive.html">Newsletter archive</a></div></section>
@@ -33,4 +33,47 @@
 <div class="footer-col"><h4>Publishing</h4><ul><li><a href="submit.html">Submit an article</a></li><li><a href="newsletter.html">Newsletter</a></li><li><a href="contributors.html">Contributor Hub</a></li></ul></div></div><div class="bottom-bar"><div class="container copyright-row">
                 <a class="footer-sitemap" href="sitemap.xml">Sitemap</a><p>© 2026 Kamulindwa Augustine (Kastine Augak). All rights reserved.</p></div></div></footer>
 <script type="module" src="blog-feed.js?v=20261104a"></script><script type="module" src="newsletter.js?v=20261103a"></script>
+<!-- Basic phone edition promotion -->
+<style>
+.basic-phone-promo{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(12,20,18,.58)}
+.basic-phone-promo.is-visible{display:flex}
+.basic-phone-card{position:relative;display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;align-items:center;width:min(520px,100%);padding:24px;background:#fff;color:#18211d;border:1px solid #dce4df;border-radius:16px;box-shadow:0 18px 55px rgba(0,0,0,.24)}
+.basic-phone-card h2{margin:0 28px 8px 0;font-size:1.25rem;line-height:1.25;color:#17251e}
+.basic-phone-card p{margin:0 0 14px;font-size:.94rem;line-height:1.5;color:#4c5b52}
+.basic-phone-art{width:104px;height:132px;display:block}
+.basic-phone-close{position:absolute;top:9px;right:11px;border:0;background:transparent;color:#4b5a51;font-size:25px;line-height:1;cursor:pointer;padding:6px}
+.basic-phone-open{display:inline-block;padding:10px 15px;border-radius:6px;background:#176b46;color:#fff!important;text-decoration:none;font-weight:700;font-size:.9rem}
+.basic-phone-open:hover{background:#105638}
+.basic-phone-later{display:inline-block;margin-left:10px;border:0;background:transparent;color:#43534a;text-decoration:underline;cursor:pointer;font:inherit;font-size:.88rem}
+.basic-phone-kicker{margin-bottom:6px!important;color:#176b46!important;font-size:.72rem!important;font-weight:700;letter-spacing:.1em}
+@media(max-width:480px){.basic-phone-card{grid-template-columns:76px minmax(0,1fr);gap:12px;padding:19px 15px}.basic-phone-art{width:74px;height:112px}.basic-phone-card h2{font-size:1.08rem}.basic-phone-card p{font-size:.86rem}.basic-phone-open{padding:9px 11px}.basic-phone-later{margin:10px 0 0;display:block}}
+@media(prefers-reduced-motion:no-preference){.basic-phone-card{animation:basicPhoneIn .22s ease-out}@keyframes basicPhoneIn{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}}
+</style>
+<div class="basic-phone-promo" id="basic-phone-promo" role="dialog" aria-modal="true" aria-labelledby="basic-phone-title" aria-describedby="basic-phone-description">
+ <section class="basic-phone-card">
+  <button class="basic-phone-close" id="basic-phone-close" type="button" aria-label="Close promotion">&times;</button>
+  <svg class="basic-phone-art" viewBox="0 0 120 160" role="img" aria-label="Illustration of a classic push-button mobile phone">
+   <defs><linearGradient id="phoneBody" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#303a35"/><stop offset="1" stop-color="#111916"/></linearGradient></defs>
+   <rect x="18" y="3" width="84" height="154" rx="15" fill="url(#phoneBody)" stroke="#68766e" stroke-width="2"/>
+   <rect x="28" y="17" width="64" height="43" rx="5" fill="#b8d2b9" stroke="#090f0c" stroke-width="3"/><rect x="35" y="24" width="50" height="29" rx="2" fill="#dcebd3"/>
+   <path d="M43 35h34M43 42h23" stroke="#6c8a70" stroke-width="2" stroke-linecap="round"/>
+   <circle cx="39" cy="72" r="5" fill="#8fb59a"/><circle cx="81" cy="72" r="5" fill="#bd7770"/><rect x="43" y="66" width="34" height="13" rx="6" fill="#65756a"/>
+   <g fill="#d9dfda" stroke="#080e0b" stroke-width="1"><rect x="31" y="86" width="17" height="13" rx="4"/><rect x="52" y="86" width="17" height="13" rx="4"/><rect x="73" y="86" width="17" height="13" rx="4"/><rect x="31" y="103" width="17" height="13" rx="4"/><rect x="52" y="103" width="17" height="13" rx="4"/><rect x="73" y="103" width="17" height="13" rx="4"/><rect x="31" y="120" width="17" height="13" rx="4"/><rect x="52" y="120" width="17" height="13" rx="4"/><rect x="73" y="120" width="17" height="13" rx="4"/></g>
+   <g fill="#24352a" font-size="7" font-family="Arial" text-anchor="middle"><text x="39.5" y="95">1</text><text x="60.5" y="95">2</text><text x="81.5" y="95">3</text><text x="39.5" y="112">4</text><text x="60.5" y="112">5</text><text x="81.5" y="112">6</text><text x="39.5" y="129">7</text><text x="60.5" y="129">8</text><text x="81.5" y="129">9</text></g><circle cx="60" cy="144" r="4" fill="#9fb5a4"/>
+  </svg>
+  <div><p class="basic-phone-kicker">LOW-DATA ACCESS</p><h2 id="basic-phone-title">Using a basic phone?</h2>
+   <p id="basic-phone-description">Explore the lightweight Kastine Augak website, made for simpler mobile browsers, smaller screens and slower connections. Read key information without heavy images or scripts.</p>
+   <a class="basic-phone-open" href="lite.html">Open basic phone version</a><button class="basic-phone-later" id="basic-phone-later" type="button">Maybe later</button>
+  </div>
+ </section>
+</div>
+<script>
+(function(){var promo=document.getElementById('basic-phone-promo');if(!promo)return;var key='kastineBasicPhonePromoDismissed';try{if(window.localStorage.getItem(key)==='yes')return;}catch(e){}
+window.setTimeout(function(){promo.classList.add('is-visible');},1200);
+function closePromo(){promo.classList.remove('is-visible');try{window.localStorage.setItem(key,'yes');}catch(e){}}
+document.getElementById('basic-phone-close').addEventListener('click',closePromo);
+document.getElementById('basic-phone-later').addEventListener('click',closePromo);
+promo.addEventListener('click',function(e){if(e.target===promo)closePromo();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&promo.classList.contains('is-visible'))closePromo();});})();
+</script>
 </body></html>
