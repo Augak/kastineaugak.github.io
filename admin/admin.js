@@ -38,7 +38,7 @@ async function loadEmailStatus(){
  const {data,error}=await db.functions.invoke("newsletter-send",{body:{action:"status"}});
  if(error||!data?.ok){status.textContent="Email delivery status unavailable. Check the Edge Function deployment.";return}
  emailDeliveryReady=!!data.configured;
- if(emailDeliveryReady)status.textContent="Email delivery is configured · "+Number(data.eligibleSubscribers||0)+" consented active subscribers · "+Number(data.sentToday||0)+"/"+Number(data.dailyLimit||300)+" emails sent today.";
+ if(emailDeliveryReady)status.textContent="Email delivery is configured · "+Number(data.eligibleSubscribers||0)+" consented active subscribers · "+Number(data.sentLast24Hours||0)+"/"+Number(data.dailyLimit||300)+" emails sent in the last 24 hours.";
  else status.textContent="Email sending is not active yet. Add the four Brevo and unsubscribe secrets in Supabase to enable it. Archive publishing remains available.";
 }
 async function loadCampaigns(){
