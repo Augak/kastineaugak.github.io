@@ -4,8 +4,9 @@
 - Contributors submit original writing through `/submit.html`.
 - Submissions are private and enter the editorial queue as `pending`.
 - Administrators review the article, author details, sources, rights and any cover media.
-- Select **Approve** before publishing. Approval alone does not make an article public.
-- Once approved, use **Publish approved article** in the admin desk. The server-side `publish-approved-article` function writes the approved article to `posts.json` on the repository's `main` branch and records the published slug and timestamp.
+- For a pending submission, select **Approve & publish**. This records the editorial approval and invokes the secure publisher.
+- If publication is temporarily blocked (for example, if the GitHub secret is not configured), the record remains approved. Use **Publish now** on the approved item after fixing the configuration.
+- Successful publication writes the article to `posts.json` on the repository's `main` branch and records the published slug and timestamp.
 - Only verified, allowlisted administrator accounts may invoke this function.
 
 ## One-time publishing secret setup
