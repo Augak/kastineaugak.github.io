@@ -555,3 +555,10 @@ h2 {
 
 /* Lightweight AMP reading link shown on published articles. */
 .amp-version-note{margin:12px 0 22px;font-size:.94rem}.amp-version-note a{color:var(--accent,#176b58);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* Homepage portrait */
+.theme-home .hero-layout{display:grid;grid-template-columns:minmax(180px,300px) minmax(0,1fr);align-items:center;gap:clamp(28px,6vw,72px)}
+.theme-home .hero-portrait-wrap{width:100%;max-width:300px;justify-self:center}
+.theme-home .hero-portrait{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;object-position:center bottom;border-radius:4px}
+.theme-home .hero-copy{min-width:0}
+@media(max-width:700px){.theme-home .hero-section{padding:48px 0}.theme-home .hero-layout{grid-template-columns:1fr;gap:24px}.theme-home .hero-portrait-wrap{max-width:190px}.theme-home .hero-portrait{max-height:300px}.theme-home .hero-copy{text-align:center}.theme-home .hero-copy .description{margin-left:auto;margin-right:auto}.theme-home .hero-copy .cta-buttons{justify-content:center}}
