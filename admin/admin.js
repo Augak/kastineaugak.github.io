@@ -1,0 +1,22 @@
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.0";
+const supabase=createClient("https://wgmitkwpxfpivwtnfhlg.supabase.co","sb_publishable_FWlyszb9Zqa-t1CUqXBj6w_8jQUQzbl");
+const $=id=>document.getElementById(id);
+const allowed=["kastineaugak@gmail.com","kastineaugak4@gmail.com"];
+let currentFilter="pending";
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function message(id,text){$(id).textContent=text||""}
+async function verifySession(){
+ const {data:{user}}=await supabase.auth.getUser();
+ if(!user){$("login-panel").hidden=false;$("desk-panel").hidden=true;return}
+ const email=(user.email||"").toLowerCase();
+ if(!allowed.includes(email)||user.app_metadata?.is_admin!==true){await supabase.auth.signOut();$("login-panel").hidden=false;$("desk-panel").hidden=true;message("login-message","This account is not authorized for the publishing desk.");return}
+ $("login-panel").hidden=true;$("desk-panel").hidden=false;$("desk-user").textContent="Signed in as "+email;
+ await loadSubmissions();
+}
+$("login-form").addEventListener("submit",async e=>{e.preventDefault();message("login-message","Signing in…");const {error}=await supabase.auth.signInWithPassword({email:$("login-email").value.trim().toLowerCase(),password:$("login-password").value});if(error){message("login-message",error.message);return}await verifySession()});
+$("signout").addEventListener("click",async()=>{await supabase.auth.signOut();await verifySession()});
+document.querySelectorAll(".desk-tabs button").forEach(b=>b.addEventListener("click",()=>{currentFilter=b.dataset.status;document.querySelectorAll(".desk-tabs button").forEach(x=>x.classList.toggle("selected",x===b));loadSubmissions()}));
+async function loadSubmissions(){const list=$("submission-list");list.innerHTML="<p>Loading…</p>";let q=supabase.from("article_submissions").select("*").order("created_at",{ascending:false});if(currentFilter!=="all")q=q.eq("status",currentFilter);const {data,error}=await q;if(error){list.innerHTML="<p class='admin-error'>"+esc(error.message)+"</p>";return}if(!data?.length){list.innerHTML="<p class='empty-state'>No "+esc(currentFilter)+" submissions.</p>";return}list.innerHTML="";for(const item of data){const card=document.createElement("article");card.className="submission-card";card.innerHTML='<div class="submission-top"><span class="submission-status status-'+esc(item.status)+'">'+esc(item.status)+'</span><time>'+esc(new Date(item.created_at).toLocaleString())+'</time></div><h3>'+esc(item.title)+'</h3><p class="byline">By '+esc(item.author_name)+' · '+esc(item.author_email)+'</p><p>'+esc(item.excerpt)+'</p><div class="submission-tags">'+(item.tags||[]).map(t=>'<span>'+esc(t)+'</span>').join("")+'</div><details><summary>Read full submission</summary><div class="submission-body">'+esc(item.article_text).replace(/\n/g,"<br>")+'</div>'+(item.source_urls?.length?'<h4>Submitted sources</h4><ul>'+item.source_urls.map(u=>'<li><a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(u)+'</a></li>').join("")+'</ul>':"")+'</details><label class="note-label">Editorial note<textarea class="editor-note" rows="2">'+esc(item.admin_note||"")+'</textarea></label><div class="review-actions"><button class="approve" data-action="approved">Approve</button><button class="reject" data-action="rejected">Reject</button></div>';card.querySelectorAll("[data-action]").forEach(btn=>btn.addEventListener("click",()=>review(item.id,btn.dataset.action,card.querySelector("textarea").value)));list.appendChild(card)}}
+async function review(id,statusValue,note){message("desk-message","Saving review…");const {error}=await supabase.from("article_submissions").update({status:statusValue,admin_note:note,reviewed_at:new Date().toISOString()}).eq("id",id);if(error){message("desk-message",error.message);return}message("desk-message","Submission marked "+statusValue+". Approved items are ready for final editorial checks before adding to the public GitHub feed.");await loadSubmissions()}
+supabase.auth.onAuthStateChange(()=>{verifySession()});
+verifySession();
