@@ -8,19 +8,19 @@ if(!root||!status)return;
 let posts=[],category=new URLSearchParams(location.search).get("tag")||"All",query="";
 const selectedSlug=new URLSearchParams(location.search).get("post");
 const socials=[
- ["Facebook","f","https://www.facebook.com/profile.php?id=1097130633478583"],
- ["Instagram","◎","https://www.instagram.com/kastine_augak/"],
- ["Threads","@","https://www.threads.net/@kastine_augak"],
- ["Pinterest","P","https://www.pinterest.com/kastineaugak/"],
- ["TikTok","♪","https://www.tiktok.com/@kastineaugak0"],
- ["YouTube","▶","https://www.youtube.com/channel/UCSJTAk9vd76A7uau9PTBniQ"],
- ["Bluesky","🦋","https://bsky.app/profile/kastineaugak.bsky.social"],
- ["X","𝕏","https://x.com/kastineaugak"],
- ["GitHub","GH","https://github.com/kastineaugak"],
- ["Linktree","↗","https://linktr.ee/kastineaugak"],
- ["Google Business","G","https://www.google.com/maps/search/?api=1&query=Kastine+Augak"]
+ ["Facebook","facebook","https://www.facebook.com/profile.php?id=1097130633478583"],
+ ["Instagram","instagram","https://www.instagram.com/kastine_augak/"],
+ ["Threads","threads","https://www.threads.net/@kastine_augak"],
+ ["Pinterest","pinterest","https://www.pinterest.com/kastineaugak/"],
+ ["TikTok","tiktok","https://www.tiktok.com/@kastineaugak0"],
+ ["YouTube","youtube","https://www.youtube.com/channel/UCSJTAk9vd76A7uau9PTBniQ"],
+ ["Bluesky","bluesky","https://bsky.app/profile/kastineaugak.bsky.social"],
+ ["X","x","https://x.com/kastineaugak"],
+ ["GitHub","github","https://github.com/kastineaugak"],
+ ["Linktree","link","https://linktr.ee/kastineaugak"],
+ ["Google Business","google","https://www.google.com/maps/search/?api=1&query=Kastine+Augak"]
 ];
-const socialHtml=()=>'<div class="article-social"><p>Connect with Kastine Augak</p><div class="social-icon-row">'+socials.map(([n,i,u])=>'<a href="'+u+'" target="_blank" rel="noopener noreferrer" aria-label="'+n+'" title="'+n+'"><span aria-hidden="true">'+i+'</span></a>').join("")+'</div></div>';
+const socialHtml=()=>'<div class="article-social"><p>Connect with Kastine Augak</p><div class="social-icon-row">'+socials.map(([n,i,u])=>'<a href="'+u+'" target="_blank" rel="noopener noreferrer" aria-label="'+n+'" title="'+n+'"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="social-icons.svg#'+i+'"></use></svg></a>').join("")+'</div></div>';
 const makeId=()=>{try{return crypto.randomUUID()}catch(_){return "v"+Math.random().toString(36).slice(2)+Date.now().toString(36)}};const visitorKey=()=>{let v="";try{v=localStorage.getItem("kastine_blog_visitor")||"";if(!v){v=makeId()+makeId().slice(0,8);localStorage.setItem("kastine_blog_visitor",v)}}catch(_){v=makeId()+makeId().slice(0,8)}return v};
 const visitor=visitorKey();
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
