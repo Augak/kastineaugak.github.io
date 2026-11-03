@@ -17,3 +17,26 @@
 .campaign-sent{display:inline-flex;align-items:center;color:#166534;font-size:.88rem;font-weight:600;padding:8px 2px}
 .campaign-actions button:disabled{opacity:.5;cursor:not-allowed}
 #newsletter-email-status{margin:8px 0 18px}
+
+/* Publishing desk: refined responsive editorial workspace */
+.admin-page{background:linear-gradient(180deg,#f8fafc 0%,#eef2f7 100%);color:#172033}
+.admin-page .navbar{padding:15px clamp(16px,4vw,42px);background:#101827;border-bottom:1px solid #263449}.admin-page .navbar .logo{text-decoration:none;color:#fff}
+.admin-wrap{max-width:1120px;padding:44px 22px 88px}.admin-intro{padding:0 0 22px;border-bottom:1px solid #dbe3ed}
+.admin-kicker{display:inline-block;color:#1d4ed8;letter-spacing:.12em;font-size:.72rem}.admin-intro h1{font-size:clamp(2rem,5vw,3.1rem);letter-spacing:-.035em;color:#111827}.admin-intro>p:last-child{font-size:1rem;line-height:1.7}
+.admin-panel,.submission-card,.analytics-box,.metric-card,.campaign-card{border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 5px 20px rgba(15,23,42,.045)}
+.admin-panel{max-width:none;padding:clamp(18px,3vw,28px);margin:22px 0;background:#fff}#login-panel{max-width:520px;margin:28px auto}
+.admin-panel h2,.admin-panel h3{color:#172033;letter-spacing:-.015em}.admin-panel label,.note-label{gap:8px;font-size:.9rem}
+.admin-panel input,.admin-panel textarea,.note-label textarea,.newsletter-composer textarea{padding:12px 14px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;transition:border-color .15s ease,box-shadow .15s ease}
+.admin-panel input:focus,.admin-panel textarea:focus,.note-label textarea:focus,.newsletter-composer textarea:focus{outline:none;border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.13)}
+.admin-primary,.admin-secondary,.review-actions button,.desk-tabs button{min-height:40px;padding:9px 15px;border-radius:8px;font-weight:650;transition:background .15s ease,border-color .15s ease,transform .15s ease}
+.admin-primary,.approve{background:#1d4ed8;color:#fff;border-color:#1d4ed8}.admin-primary:hover,.approve:hover{background:#1e40af;border-color:#1e40af}
+.admin-secondary,.desk-tabs button{background:#fff;color:#334155;border-color:#cbd5e1}.admin-secondary:hover,.desk-tabs button:hover{background:#f1f5f9;border-color:#94a3b8}
+.desk-head{margin:30px 0 18px;padding:18px 20px;background:#fff;border:1px solid #e2e8f0;border-radius:12px}.desk-head h2{font-size:1.35rem}
+.desk-tabs{gap:8px;padding:5px;background:#e8edf4;border-radius:10px}.desk-tabs button{border-color:transparent}.desk-tabs button.selected{background:#172033;color:#fff;border-color:#172033;box-shadow:0 2px 6px rgba(15,23,42,.15)}
+.desk-tabs.small{background:transparent;padding:0}.desk-tabs.small button.selected{background:#1d4ed8;border-color:#1d4ed8}.admin-section{margin-top:24px}.section-heading{margin:22px 0 16px}
+.submission-card{padding:clamp(17px,2.5vw,24px);margin-bottom:14px}.submission-card h3{font-size:1.15rem;line-height:1.35}.submission-top{align-items:center}
+.submission-status{padding:5px 9px;border-radius:999px;background:#f1f5f9;font-size:.7rem}.status-pending{background:#fef3c7;color:#92400e}.status-approved{background:#dcfce7;color:#166534}.status-rejected{background:#fee2e2;color:#991b1b}
+.review-actions{flex-wrap:wrap}.review-actions button{padding:8px 13px}.reject{border:1px solid #fecaca!important;border-radius:8px!important}.empty-state,.admin-error{border-radius:10px;padding:24px}
+.analytics-cards{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}.metric-card{padding:18px;border-radius:12px}.metric-card strong{font-size:1.8rem;letter-spacing:-.04em}.analytics-box{padding:20px;border-radius:12px}
+.bar-track{height:9px;border-radius:99px}.bar-track i{border-radius:99px;background:#2563eb}.newsletter-composer{background:#f8fafc}.campaign-card{border-radius:10px;padding:20px}.contributor-welcome{border-radius:8px;border-left-width:4px;line-height:1.65}.admin-message{line-height:1.55}
+@media(max-width:680px){.admin-wrap{padding:28px 14px 60px}.desk-head{padding:16px;flex-direction:column}.desk-tabs{overflow-x:auto;flex-wrap:nowrap}.desk-tabs button{white-space:nowrap}.desk-tabs.small{flex-wrap:wrap}.submission-top{align-items:flex-start}.admin-intro{padding-bottom:18px}}
