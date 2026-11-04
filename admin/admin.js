@@ -1,14 +1,57 @@
 import {createClient} from "https://esm.sh/@supabase/supabase-js@2.57.0";
 const db=createClient("https://wgmitkwpxfpivwtnfhlg.supabase.co","sb_publishable_FWlyszb9Zqa-t1CUqXBj6w_8jQUQzbl");
 const $=id=>document.getElementById(id),allowed=["kastineaugak@gmail.com","kastineaugak4@gmail.com"];
-let submissionFilter="pending",commentFilter="published",emailDeliveryReady=false;
+let submissionFilter="pending",commentFilter="published",emailDeliveryReady=false,verifyPromise=null;
+async function withTimeout(promise,ms,message){let timer;try{return await Promise.race([promise,new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(message)),ms)})])}finally{clearTimeout(timer)}}
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function msg(id,s){$(id).textContent=s||""}
-async function verifySession(){const {data:{user}}=await db.auth.getUser();if(!user){$("login-panel").hidden=false;$("desk-panel").hidden=true;return}if(!allowed.includes((user.email||"").toLowerCase())||user.app_metadata?.is_admin!==true){await db.auth.signOut();$("login-panel").hidden=false;$("desk-panel").hidden=true;msg("login-message","This account is not authorized. Use one of the two approved addresses.");return}$("login-panel").hidden=true;$("desk-panel").hidden=false;$("desk-user").textContent="Signed in as "+user.email;await loadSubmissions();await loadAnalytics();await loadComments();await loadSubscribers();await loadEmailStatus();await loadCampaigns()}
-$("login-form").addEventListener("submit",async e=>{e.preventDefault();msg("login-message","Signing in…");try{const {error}=await db.auth.signInWithPassword({email:$("login-email").value.trim().toLowerCase(),password:$("login-password").value});if(error){msg("login-message",error.message);return}await verifySession()}catch(error){msg("login-message","Could not reach Supabase from this browser ("+(error instanceof Error?error.message:String(error))+"). Check the connection and open the admin page in Chrome.")}});
+async function verifySession(){
+ if(verifyPromise)return verifyPromise;
+ verifyPromise=(async()=>{
+  try{
+   const {data,error}=await withTimeout(db.auth.getUser(),12000,"The secure sign-in check timed out. Check your connection and try again.");
+   if(error)throw error;
+   const user=data?.user;
+   if(!user){$("login-panel").hidden=false;$("desk-panel").hidden=true;return}
+   if(!allowed.includes((user.email||"").toLowerCase())||user.app_metadata?.is_admin!==true){await db.auth.signOut();$("login-panel").hidden=false;$("desk-panel").hidden=true;msg("login-message","This account is not authorized. Use one of the two approved addresses.");return}
+   $("login-panel").hidden=true;$("desk-panel").hidden=false;$("desk-user").textContent="Signed in as "+user.email+" · Loading your publishing desk…";
+   const tasks=[loadSubmissions(),loadAnalytics(),loadComments(),loadSubscribers(),loadEmailStatus(),loadCampaigns()];
+   Promise.allSettled(tasks).then(results=>{
+    const failed=results.some(x=>x.status==="rejected");
+    $("desk-user").textContent="Signed in as "+user.email+(failed?" · Some information could not load. Refresh the panel to retry.":"");
+   });
+  }catch(error){
+   $("login-panel").hidden=false;$("desk-panel").hidden=true;
+   msg("login-message","Could not verify your sign-in: "+(error instanceof Error?error.message:String(error))+". Check your connection and try again.");
+  }
+ })();
+ try{return await verifyPromise}finally{verifyPromise=null}
+}
+$("login-form").addEventListener("submit",async e=>{
+ e.preventDefault();const button=e.currentTarget.querySelector('button[type="submit"]'),label=button.textContent;
+ button.disabled=true;button.textContent="Signing in…";msg("login-message","Checking your sign-in securely…");
+ try{
+  const {error}=await withTimeout(db.auth.signInWithPassword({email:$("login-email").value.trim().toLowerCase(),password:$("login-password").value}),15000,"Sign-in is taking too long. Check your internet connection and try again.");
+  if(error){msg("login-message",error.message);return}
+  await verifySession();
+ }catch(error){msg("login-message","Sign-in could not be completed: "+(error instanceof Error?error.message:String(error))+". Please try again in Chrome when your connection is stable.")}
+ finally{button.disabled=false;button.textContent=label}
+});
 $("show-signup").onclick=()=>{$("signup-form").hidden=false;$("show-signup").hidden=true};
 $("hide-signup").onclick=()=>{$("signup-form").hidden=true;$("show-signup").hidden=false};
-$("signup-form").addEventListener("submit",async e=>{e.preventDefault();const email=$("signup-email").value.trim().toLowerCase(),password=$("signup-password").value;if(!allowed.includes(email)){msg("signup-message","Only the two pre-authorized email addresses can register.");return}if(password.length<10){msg("signup-message","Use a password with at least 10 characters.");return}msg("signup-message","Connecting securely to the account service…");try{const {data,error}=await db.auth.signUp({email,password,options:{emailRedirectTo:"https://augak.github.io/kastineaugak.github.io/admin/"}});if(error){msg("signup-message","Supabase response: "+error.message);return}if(data?.user){msg("signup-message","Account request received. Check "+email+" for the verification email. Verify it, then return here and sign in. Admin privileges are granted after verification.");$("signup-form").reset()}else{msg("signup-message","The account service returned no user record. Refresh the page and try again.")}}catch(error){const detail=error instanceof Error?error.message:String(error);msg("signup-message","Could not reach Supabase from this browser ("+detail+"). Open this page in Chrome, check your internet connection, and try again. If it continues, send us the exact message and the page address.");}});
+$("signup-form").addEventListener("submit",async e=>{
+ e.preventDefault();const form=e.currentTarget,button=form.querySelector('button[type="submit"]'),label=button.textContent,email=$("signup-email").value.trim().toLowerCase(),password=$("signup-password").value;
+ if(!allowed.includes(email)){msg("signup-message","Only the two pre-authorized email addresses can register.");return}
+ if(password.length<10){msg("signup-message","Use a password with at least 10 characters.");return}
+ button.disabled=true;button.textContent="Connecting…";msg("signup-message","Connecting securely to the account service…");
+ try{
+  const {data,error}=await withTimeout(db.auth.signUp({email,password,options:{emailRedirectTo:"https://augak.github.io/kastineaugak.github.io/admin/"}}),15000,"Account registration is taking too long. Check your connection and try again.");
+  if(error){msg("signup-message","Supabase response: "+error.message);return}
+  if(data?.user){msg("signup-message","Account request received. Check "+email+" for the verification email. Verify it, then return here and sign in. Admin privileges are granted after verification.");form.reset()}
+  else msg("signup-message","The account service returned no user record. Refresh the page and try again.");
+ }catch(error){msg("signup-message","Registration could not be completed: "+(error instanceof Error?error.message:String(error))+". Check your connection and try again.")}
+ finally{button.disabled=false;button.textContent=label}
+});
 $("signout").onclick=async()=>{await db.auth.signOut();await verifySession()};
 document.querySelectorAll("[data-panel]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-panel]").forEach(x=>x.classList.toggle("selected",x===b));["submissions","analytics","discussions","newsletter"].forEach(k=>$(k+"-panel").hidden=k!==b.dataset.panel);if(b.dataset.panel==="analytics")loadAnalytics();if(b.dataset.panel==="discussions")loadComments();if(b.dataset.panel==="newsletter"){loadSubscribers();loadEmailStatus();loadCampaigns()}}));
 document.querySelectorAll("[data-status]").forEach(b=>b.addEventListener("click",()=>{submissionFilter=b.dataset.status;document.querySelectorAll("[data-status]").forEach(x=>x.classList.toggle("selected",x===b));loadSubmissions()}));
