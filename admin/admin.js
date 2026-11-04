@@ -35,14 +35,21 @@ if(campaignForm)campaignForm.addEventListener("submit",async e=>{
  if(error){msg("newsletter-admin-message","Could not save draft: "+error.message);return}
  campaignForm.reset();msg("newsletter-admin-message","Draft saved. Review it below, then publish it to the free public archive.");await loadCampaigns();
 });
+async function invokeNewsletterFunction(body){
+ const {data:{session},error:sessionError}=await db.auth.getSession();
+ if(sessionError||!session?.access_token)throw new Error("Your admin session has expired. Sign out, sign in again, then retry.");
+ return await db.functions.invoke("newsletter-send",{body,headers:{Authorization:"Bearer "+session.access_token}});
+}
 async function loadEmailStatus(){
  const status=$("newsletter-email-status");if(!status)return;
  status.textContent="Checking email delivery configuration…";emailDeliveryReady=false;
- const {data,error}=await db.functions.invoke("newsletter-send",{body:{action:"status"}});
- if(error||!data?.ok){status.textContent="Email delivery status unavailable. Check the Edge Function deployment.";return}
- emailDeliveryReady=!!data.configured;
- if(emailDeliveryReady)status.textContent="Email delivery is configured · "+Number(data.eligibleSubscribers||0)+" consented active subscribers · "+Number(data.sentLast24Hours||0)+"/"+Number(data.dailyLimit||300)+" emails sent in the last 24 hours.";
- else status.textContent="Email sending is not active yet. Add the four Brevo and unsubscribe secrets in Supabase to enable it. Archive publishing remains available.";
+ try{
+  const {data,error}=await invokeNewsletterFunction({action:"status"});
+  if(error||!data?.ok){status.textContent="Email delivery status unavailable: "+(data?.error||error?.message||"The server did not return a valid status.");return}
+  emailDeliveryReady=!!data.configured;
+  if(emailDeliveryReady)status.textContent="Email delivery is configured · "+Number(data.eligibleSubscribers||0)+" consented active subscribers · "+Number(data.sentLast24Hours||0)+"/"+Number(data.dailyLimit||300)+" emails sent in the last 24 hours.";
+  else status.textContent="Email sending is not active yet. Brevo sender details and the unsubscribe signing secret must all be configured in Supabase. Archive publishing remains available.";
+ }catch(error){status.textContent="Could not check email delivery: "+(error instanceof Error?error.message:String(error));}
 }
 async function loadCampaigns(){
  const box=$("newsletter-campaign-list");if(!box)return;box.innerHTML="<p>Loading editions…</p>";
@@ -72,10 +79,15 @@ async function loadCampaigns(){
   if(!emailDeliveryReady){msg("newsletter-admin-message","Email sending is not configured. No email was sent.");return}
   if(!confirm("Send “"+campaign.title+"” to all active subscribers who explicitly consented to receive publication emails? Successful deliveries will not be repeated if you retry."))return;
   btn.disabled=true;btn.textContent="Sending…";msg("newsletter-admin-message","Sending newsletter emails. Please keep this page open until the result appears…");
-  const {data:result,error:sendError}=await db.functions.invoke("newsletter-send",{body:{action:"send",campaign_id:campaign.id}});
-  if(sendError||!result?.ok){msg("newsletter-admin-message","Email sending did not complete: "+(result?.error||sendError?.message||"Unknown error"));await loadEmailStatus();await loadCampaigns();return}
-  msg("newsletter-admin-message",result.message+" Sent in this run: "+result.sent+" · Failed: "+result.failed+" · Skipped: "+result.skipped+".");
-  await loadEmailStatus();await loadCampaigns();
+  try{
+   const {data:result,error:sendError}=await invokeNewsletterFunction({action:"send",campaign_id:campaign.id});
+   if(sendError||!result?.ok){msg("newsletter-admin-message","Email sending did not complete: "+(result?.error||sendError?.message||"Unknown server response"));await loadEmailStatus();await loadCampaigns();return}
+   msg("newsletter-admin-message",result.message+" Sent in this run: "+result.sent+" · Failed: "+result.failed+" · Skipped: "+result.skipped+".");
+   await loadEmailStatus();await loadCampaigns();
+  }catch(error){
+   msg("newsletter-admin-message","Email request failed before confirmation: "+(error instanceof Error?error.message:String(error))+" No delivery is confirmed. You can safely retry; already-sent recipients are skipped.");
+   await loadEmailStatus();await loadCampaigns();
+  }
  }));
 }
 
