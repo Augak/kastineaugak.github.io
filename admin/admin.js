@@ -143,7 +143,7 @@ function renderSpeedInsights(){
  const metric=(name,value,unit,good,needs)=>'<article class="speed-metric"><span>'+name+'</span><strong>'+value+'</strong><small>'+speedRating(unit,good,needs)+'</small></article>';
  const metrics=[
   ["Largest Contentful Paint",ms(m.lcp),m.lcp,2500,4000],
-  ["Interaction to Next Paint",ms(m.inp),m.inp,200,500],
+  ["Interaction delay (local INP estimate)",ms(m.inp),m.inp,200,500],
   ["Cumulative Layout Shift",m.cls==null?"—":m.cls.toFixed(3),m.cls,.1,.25],
   ["First Contentful Paint",ms(m.fcp),m.fcp,1800,3000],
   ["Time to First Byte",ms(m.ttfb),m.ttfb,800,1800]
