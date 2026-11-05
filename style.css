@@ -587,3 +587,46 @@ h2 {
   .theme-blog .page-content { padding-top: 34px; }
   .theme-blog .blog-heading { padding-bottom: 24px; }
 }
+
+
+/* Site-wide accessibility and readability improvements */
+html { scroll-behavior: smooth; }
+body { color: #0f172a; }
+a:not(.btn):not(.logo):not(.social-links a):not(.social-icon-row a):not(.article-social a) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #92400e;
+  outline-offset: 3px;
+}
+.skip-link {
+  position: absolute;
+  z-index: 10000;
+  top: 8px;
+  left: 8px;
+  transform: translateY(-160%);
+  padding: 10px 14px;
+  background: #fff;
+  color: #111827 !important;
+  border: 2px solid #111827;
+  border-radius: 3px;
+  font-weight: 700;
+}
+.skip-link:focus { transform: translateY(0); }
+img, video, iframe { max-width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
