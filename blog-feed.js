@@ -1,5 +1,5 @@
 /* Public blog: topics, media, sharing, reactions and account-free article discussions. */
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.0";
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.0/+esm";
 (()=>{"use strict";
 const SUPABASE_URL="https://wgmitkwpxfpivwtnfhlg.supabase.co",SUPABASE_KEY="sb_publishable_FWlyszb9Zqa-t1CUqXBj6w_8jQUQzbl";
 const db=createClient(SUPABASE_URL,SUPABASE_KEY);
