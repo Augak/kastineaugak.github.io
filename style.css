@@ -562,3 +562,28 @@ h2 {
 .theme-home .hero-portrait{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;object-position:center bottom;border-radius:4px}
 .theme-home .hero-copy{min-width:0}
 @media(max-width:700px){.theme-home .hero-section{padding:48px 0}.theme-home .hero-layout{grid-template-columns:1fr;gap:24px}.theme-home .hero-portrait-wrap{max-width:190px}.theme-home .hero-portrait{max-height:300px}.theme-home .hero-copy{text-align:center}.theme-home .hero-copy .description{margin-left:auto;margin-right:auto}.theme-home .hero-copy .cta-buttons{justify-content:center}}
+
+
+/* PageSpeed accessibility refinements for the public blog */
+.theme-blog .blog-status,
+.theme-blog .post-meta,
+.theme-blog .blog-publish-note p { color: #475569; }
+.theme-blog main a:not(.btn):not(.blog-filter):not(.read-article):not(.back-to-blog) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+}
+.theme-blog .navbar .logo { color: #fff; text-decoration: none; }
+.theme-blog .navbar nav a { color: #cbd5e1; }
+.theme-blog .navbar nav a.active,
+.theme-blog .navbar nav a:hover,
+.theme-blog .navbar nav a:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: .2em; }
+.theme-blog .blog-search:focus-visible,
+.theme-blog .newsletter-form input:focus-visible,
+.theme-blog .blog-filter:focus-visible,
+.theme-blog .article-actions button:focus-visible { outline: 3px solid #92400e; outline-offset: 3px; }
+.theme-blog .blog-hero-media img { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; }
+@media (max-width:700px) {
+  .theme-blog .page-content { padding-top: 34px; }
+  .theme-blog .blog-heading { padding-bottom: 24px; }
+}
