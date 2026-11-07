@@ -4,8 +4,7 @@
   const KEY = "kastine_cookie_notice_dismissed_v1";
   try { if (window.localStorage.getItem(KEY) === "yes") return; } catch (_) {}
 
-  const path = location.pathname;
-  const prefix = /\/(posts|amp|blog)\//.test(path) ? "../" : "";
+  const privacyUrl = "https://augak.github.io/kastineaugak.github.io/privacy.html";
   const style = document.createElement("style");
   style.textContent = `
     .kastine-cookie-notice{position:fixed;z-index:9998;left:18px;right:18px;bottom:18px;max-width:900px;margin:0 auto;padding:18px 20px;display:flex;align-items:center;gap:20px;background:#10251f;color:#f8fafc;border:1px solid rgba(203,213,225,.28);border-radius:10px;box-shadow:0 14px 45px rgba(2,6,23,.28);font:inherit}
