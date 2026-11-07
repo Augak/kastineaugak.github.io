@@ -25,7 +25,7 @@
   notice.className = "kastine-cookie-notice";
   notice.setAttribute("role", "region");
   notice.setAttribute("aria-label", "Cookie and browser storage notice");
-  notice.innerHTML = '<div class="kastine-cookie-copy"><strong>Cookies &amp; similar technologies</strong><p>This site uses essential browser storage (including local storage, which works similarly to cookies) to remember preferences and help prevent repeated reactions. We also record article activity such as page views, reactions, downloads and shares to understand how the publication is used. <a href="' + prefix + 'privacy.html">Read our Privacy Notice</a>.</p></div><button class="kastine-cookie-dismiss" type="button">Got it</button>';
+  notice.innerHTML = '<div class="kastine-cookie-copy"><strong>Cookies &amp; similar technologies</strong><p>This site uses essential browser storage (including local storage, which works similarly to cookies) to remember preferences and help prevent repeated reactions. We also record article activity such as page views, reactions, downloads and shares to understand how the publication is used. If you choose a translated version, Google Translate may use its own cookies to provide the translation service. <a href="' + prefix + 'privacy.html">Read our Privacy Notice</a>.</p></div><button class="kastine-cookie-dismiss" type="button">Got it</button>';
   document.body.appendChild(notice);
 
   const dismiss = () => {
