@@ -1,4 +1,8 @@
+# NOTE: GitHub Pages project sites cannot serve an effective host-root robots.txt
+# from a project subdirectory. For host-wide crawler rules, publish this file at:
+# https://augak.github.io/robots.txt (in the user's host-root Pages repository).
 User-agent: *
 Allow: /
-Disallow: /admin/
+Disallow: /kastineaugak.github.io/admin/
+
 Sitemap: https://augak.github.io/kastineaugak.github.io/sitemap.xml
