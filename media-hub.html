@@ -73,6 +73,6 @@ toggle.addEventListener('click',async()=>{if(audio.paused){status.textContent='C
 document.querySelectorAll('.stream-choice').forEach(button=>button.addEventListener('click',()=>{audio.pause();audio.src=button.dataset.stream;document.getElementById('station-name').textContent=button.dataset.name;setPlaying(false);status.textContent='Stream selected. Press play to listen.';}));
 audio.addEventListener('ended',()=>setPlaying(false));audio.addEventListener('pause',()=>setPlaying(false));
 </script>
-<script src="cookie-notice.js?v=20261106b" defer></script>
+<script src="cookie-notice.js?v=20261107a" defer></script>
 <script src="site-enhancements.js?v=20261107b" defer></script>
 </body></html>
