@@ -1,7 +1,7 @@
 /* Lightweight site-wide language selector. Google Translate is loaded only when a visitor chooses a language. */
 (function(){
   "use strict";
-  var header=document.querySelector(".navbar");
+  var header=document.querySelector(".navbar") || document.querySelector("header");
   if(!header || document.getElementById("kastine-language")) return;
   var wrap=document.createElement("div");
   wrap.id="kastine-language";
@@ -10,7 +10,7 @@
   wrap.innerHTML='<span class="kastine-language-label">Language</span><div id="google_translate_element"></div>';
   header.appendChild(wrap);
   var style=document.createElement("style");
-  style.textContent='.navbar{flex-wrap:wrap;gap:12px}.kastine-language{display:flex;align-items:center;gap:8px;margin-left:auto;color:#e2e8f0;font-size:.84rem}.kastine-language-label{font-weight:600}.kastine-language select{max-width:190px;min-height:36px;padding:6px 28px 6px 9px;border:1px solid #94a3b8;border-radius:4px;background:#fff;color:#17212b;font:inherit}.kastine-language .goog-te-gadget{color:#e2e8f0!important;font-family:inherit!important;font-size:0!important}.kastine-language .goog-te-gadget select{font-size:14px!important}.kastine-language .goog-logo-link,.kastine-language .goog-te-gadget span{font-size:11px!important}.kastine-language .goog-te-gadget img{vertical-align:middle}@media(max-width:700px){.kastine-language{width:100%;margin-left:0}.kastine-language select{max-width:100%;width:min(260px,100%)}}';
+  style.textContent='.navbar{flex-wrap:wrap;gap:12px}header:not(.navbar) .kastine-language{padding:8px 14px;background:#10251f;justify-content:flex-end}.kastine-language{display:flex;align-items:center;gap:8px;margin-left:auto;color:#e2e8f0;font-size:.84rem}.kastine-language-label{font-weight:600}.kastine-language select{max-width:190px;min-height:36px;padding:6px 28px 6px 9px;border:1px solid #94a3b8;border-radius:4px;background:#fff;color:#17212b;font:inherit}.kastine-language .goog-te-gadget{color:#e2e8f0!important;font-family:inherit!important;font-size:0!important}.kastine-language .goog-te-gadget select{font-size:14px!important}.kastine-language .goog-logo-link,.kastine-language .goog-te-gadget span{font-size:11px!important}.kastine-language .goog-te-gadget img{vertical-align:middle}@media(max-width:700px){.kastine-language{width:100%;margin-left:0}.kastine-language select{max-width:100%;width:min(260px,100%)}}';
   document.head.appendChild(style);
   window.googleTranslateElementInit=function(){
     if(!window.google || !google.translate || !google.translate.TranslateElement) return;
