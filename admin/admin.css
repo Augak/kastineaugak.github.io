@@ -43,31 +43,3 @@
 
 /* Lightweight Speed Insights panel */
 .speed-summary{padding:16px 18px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;margin:14px 0;color:#475569}.speed-summary p{margin:5px 0;line-height:1.5}.speed-summary strong{color:#172033}.speed-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:14px 0}.speed-metric{display:grid;gap:7px;padding:17px;background:#fff;border:1px solid #e2e8f0;border-radius:10px}.speed-metric span{font-size:.82rem;color:#64748b}.speed-metric strong{font-size:1.5rem;color:#172033}.speed-metric small{font-weight:700;color:#2563eb}.speed-link{display:inline-flex;margin:5px 0;text-decoration:none}.analytics-box p{margin:9px 0;color:#475569}
-
-
-/* Image-led sign-in panel; existing authentication forms and workspace stay functional. */
-.admin-login-panel{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0;max-width:900px!important;overflow:hidden;padding:0!important;border:1px solid #dbe3ed!important;border-radius:14px!important;background:#fff!important;box-shadow:0 18px 48px rgba(16,36,61,.09)!important}
-.admin-login-visual{position:relative;min-height:550px;overflow:hidden;background:#102b46}
-.admin-login-visual:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(0deg,rgba(8,24,42,.94),transparent)}
-.admin-login-visual img{display:block;width:100%;height:100%;min-height:550px;object-fit:cover;object-position:center 18%}
-.admin-login-caption{position:absolute;z-index:1;left:clamp(18px,3vw,32px);right:20px;bottom:28px;color:#fff}
-.admin-login-caption span,.admin-login-overline{display:block;margin:0 0 10px;color:#e3b65b;font-size:.72rem;font-weight:800;letter-spacing:.14em}
-.admin-login-caption strong{display:block;font-size:clamp(1.45rem,2.8vw,2.1rem);line-height:1.12;letter-spacing:-.03em}
-.admin-login-caption p{margin:12px 0 0;color:#d7e5f1;font-size:.9rem;line-height:1.6}
-.admin-login-content{padding:clamp(22px,4vw,42px)}
-.admin-login-content h2{font-size:clamp(1.55rem,3vw,2rem)}
-.admin-login-content .admin-help{line-height:1.6}
-@media(max-width:700px){.admin-login-panel{grid-template-columns:1fr}.admin-login-visual,.admin-login-visual img{min-height:260px;height:260px}.admin-login-visual img{object-position:center 20%}.admin-login-content{padding:22px 18px}}
-
-.admin-page{background:#0b1b30!important}
-.admin-page .admin-login-panel{display:block;max-width:520px!important;margin:22px auto!important;padding:clamp(25px,4vw,42px)!important;background:rgba(255,255,255,.96)!important}
-.admin-page .admin-login-visual{display:none!important}
-.admin-page .admin-login-content{padding:0!important}
-
-/* The admin route has its own stylesheet, so its photographic background is defined here. */
-.admin-page{position:relative;isolation:isolate;min-height:100vh;background:transparent!important}
-.admin-page:before{content:"";position:fixed;inset:0;z-index:-2;background:url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=85") center/cover no-repeat}
-.admin-page:after{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(115deg,rgba(7,20,36,.86),rgba(10,34,57,.68) 52%,rgba(9,24,42,.82));pointer-events:none}
-.admin-page .navbar{position:relative;z-index:2;background:rgba(7,20,36,.78)!important;backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.16)}
-.admin-page .footer{position:relative;z-index:2;background:rgba(7,20,36,.88)!important}
-.admin-page .admin-login-panel{position:relative;z-index:1}
