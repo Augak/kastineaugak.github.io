@@ -1,0 +1,22 @@
+# Generated and dependency files
+.git/
+node_modules/
+vendor/
+dist/
+build/
+coverage/
+*.min.js
+*.min.css
+
+# Media and binary assets
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.avif
+*.svg
+*.ico
+*.pdf
+*.mp4
+*.webm
