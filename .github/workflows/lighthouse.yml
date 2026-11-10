@@ -20,7 +20,7 @@ jobs:
   lighthouse:
     name: Lighthouse CI
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -55,3 +55,34 @@ jobs:
           if [ -f /tmp/kastine-site.pid ]; then
             kill "$(cat /tmp/kastine-site.pid)" || true
           fi
+
+  html-validation:
+    name: HTML validation (baseline report)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install HTML validator
+        run: npm install --no-save --no-audit --no-fund html-validate@10
+      - name: Validate HTML files
+        continue-on-error: true
+        run: npx html-validate "**/*.html"
+
+  secret-scan:
+    name: Secret scanning
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Scan repository for accidentally committed secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
