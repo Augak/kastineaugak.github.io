@@ -24,15 +24,12 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
       - name: Install Lighthouse CI
         run: npm install --no-save --no-audit --no-fund @lhci/cli@0.14.0
-
       - name: Start local static site
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/kastine-site.log 2>&1 &
@@ -45,10 +42,8 @@ jobs:
           done
           cat /tmp/kastine-site.log
           exit 1
-
       - name: Run Lighthouse audits
         run: npx lhci autorun --config=./lighthouserc.json
-
       - name: Stop local static site
         if: always()
         run: |
@@ -56,15 +51,72 @@ jobs:
             kill "$(cat /tmp/kastine-site.pid)" || true
           fi
 
+  axe-accessibility:
+    name: axe-core accessibility scan (baseline report)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install isolated browser test tools
+        run: npm install --no-save --no-audit --no-fund playwright@1.56.1 @axe-core/playwright@4.10.2
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Start local static site
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/kastine-site.log 2>&1 &
+          echo $! > /tmp/kastine-site.pid
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/kastine-site.log
+          exit 1
+      - name: Scan key pages with axe-core
+        run: |
+          mkdir -p quality-reports
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+          import AxeBuilder from '@axe-core/playwright';
+          import { writeFile } from 'node:fs/promises';
+          const paths = ['/', '/about.html', '/ventures.html', '/contact.html'];
+          const browser = await chromium.launch({ headless: true });
+          const results = [];
+          try {
+            for (const path of paths) {
+              const page = await browser.newPage();
+              await page.goto(`http://127.0.0.1:4173${path}`, { waitUntil: 'networkidle', timeout: 30000 });
+              const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+              results.push({ path, violations: result.violations.map(({ id, impact, description, help, nodes }) => ({ id, impact, description, help, nodeCount: nodes.length })) });
+              console.log(`${path}: ${result.violations.length} axe-core violation types`);
+              await page.close();
+            }
+          } finally {
+            await browser.close();
+          }
+          await writeFile('quality-reports/axe-results.json', JSON.stringify(results, null, 2));
+          NODE
+      - name: Upload accessibility report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: axe-accessibility-report
+          path: quality-reports/axe-results.json
+          if-no-files-found: ignore
+      - name: Stop local static site
+        if: always()
+        run: |
+          if [ -f /tmp/kastine-site.pid ]; then kill "$(cat /tmp/kastine-site.pid)" || true; fi
+
   html-validation:
     name: HTML validation (baseline report)
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
       - name: Install HTML validator
@@ -72,6 +124,41 @@ jobs:
       - name: Validate HTML files
         continue-on-error: true
         run: npx html-validate "**/*.html"
+
+  link-check:
+    name: Lychee link scan (baseline report)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check local and external links
+        continue-on-error: true
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress --exclude-mail --max-retries 2 --timeout 20 --accept 200,206,429 './**/*.html' './**/*.md' './*.xml' './*.txt'
+          output: ./lychee-report.md
+          format: markdown
+      - name: Upload link report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lychee-link-report
+          path: lychee-report.md
+          if-no-files-found: ignore
+
+  formatting:
+    name: Prettier formatting (baseline report)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check formatting without rewriting files
+        continue-on-error: true
+        run: npx --yes prettier@3.6.2 --check "**/*.{html,css,js,json,md,yml,yaml}"
 
   secret-scan:
     name: Secret scanning
