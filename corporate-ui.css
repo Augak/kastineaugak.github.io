@@ -331,3 +331,11 @@ body.admin-page .footer,body.theme-contact .footer,body.theme-blog:has(.newslett
 .ka-hero-marquee{overflow:visible!important}
 .ka-marquee-writing{justify-content:flex-start!important;text-align:left!important;padding-left:0!important;padding-right:0!important}
 @media(prefers-reduced-motion:reduce){.theme-home .ka-depth-art svg,.theme-home .ka-depth-art path,.theme-home .ka-depth-art ellipse,.theme-home .ka-depth-art circle{animation:none!important}}
+
+/* Ensure the photographic backdrop is visible behind the translucent page panels. */
+body.admin-page,body.theme-blog:has(.newsletter-feature-panel),body.theme-contact{background:transparent!important}
+.theme-home .hero-portrait-wrap{overflow:visible!important;aspect-ratio:auto!important;min-height:clamp(340px,40vw,500px)!important;padding:10px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+.theme-home .hero-portrait-wrap:before{inset:3% -7% 7%!important;z-index:0!important;clip-path:polygon(50% 0%,61% 27%,91% 13%,79% 43%,100% 60%,68% 68%,75% 100%,50% 82%,25% 100%,32% 68%,0% 60%,21% 43%,9% 13%,39% 27%)!important;border:0!important;border-radius:0!important;background:linear-gradient(135deg,#f4d17f 0%,#e3b65b 25%,#50a9d8 58%,#e3b65b 100%)!important;filter:drop-shadow(0 18px 35px rgba(0,0,0,.22))!important;transform:rotate(-5deg)!important;animation:ka-star-breathe 8s ease-in-out infinite alternate!important}
+.theme-home .hero-portrait-wrap:after{inset:0!important;z-index:-1!important;border-radius:50%!important;background:radial-gradient(ellipse at 50% 48%,rgba(93,174,220,.38),rgba(227,182,91,.15) 44%,transparent 72%)!important;filter:blur(18px)!important}
+.theme-home .hero-portrait{position:relative!important;z-index:2!important;width:100%!important;height:clamp(340px,40vw,490px)!important;max-height:none!important;object-fit:contain!important;object-position:center bottom!important;border:0!important;border-radius:0!important;box-shadow:none!important;filter:drop-shadow(0 17px 18px rgba(0,0,0,.28))!important;transform:translateY(12px)!important}
+@media(max-width:700px){.theme-home .hero-portrait-wrap{min-height:340px!important;aspect-ratio:auto!important}.theme-home .hero-portrait{height:340px!important}}
