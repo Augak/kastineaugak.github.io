@@ -29,7 +29,10 @@
     s.async=true;
     document.head.appendChild(s);
   };
-  var trigger=wrap.querySelector(".ka-language-trigger");\n  trigger.addEventListener("click",function(){var open=wrap.classList.toggle("is-open");trigger.setAttribute("aria-expanded",String(open));if(open)load();});\n  document.addEventListener("click",function(event){if(!wrap.contains(event.target)){wrap.classList.remove("is-open");trigger.setAttribute("aria-expanded","false");}});\n  var box=document.getElementById("google_translate_element");
+  var trigger=wrap.querySelector(".ka-language-trigger");
+  trigger.addEventListener("click",function(){var open=wrap.classList.toggle("is-open");trigger.setAttribute("aria-expanded",String(open));if(open)load();});
+  document.addEventListener("click",function(event){if(!wrap.contains(event.target)){wrap.classList.remove("is-open");trigger.setAttribute("aria-expanded","false");}});
+  var box=document.getElementById("google_translate_element");
   if(box){
     box.addEventListener("focusin",load,{once:true});
     box.addEventListener("click",load,{once:true});
