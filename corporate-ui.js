@@ -12,7 +12,7 @@ button.addEventListener("click",function(){var open=button.getAttribute("aria-ex
 nav.addEventListener("click",function(event){if(event.target.closest("a"))close();});
 document.addEventListener("keydown",function(event){if(event.key==="Escape"&&button.getAttribute("aria-expanded")==="true"){close();button.focus();}});
 window.addEventListener("resize",function(){if(window.matchMedia("(min-width: 821px)").matches)close();});
-header.insertBefore(button,nav);
+header.insertBefore(button,header.firstElementChild);
 })();
 
 
@@ -90,12 +90,27 @@ if(document.body.classList.contains("theme-home")){
    function nextPhrase(){index=(index+1)%phrases.length;typePhrase(phrases[index]);}
    typingTimer=setTimeout(nextPhrase,4200);
   }
+  var hero=document.querySelector(".theme-home .hero-section");
   var marquee=document.createElement("div");marquee.className="ka-hero-marquee";marquee.setAttribute("aria-label","Ways we can help");
+  var writing=document.createElement("div");writing.className="ka-marquee-writing";
+  var lead=document.createElement("strong");lead.textContent="Let's build something useful together.";
+  var typed=document.createElement("span");typed.className="ka-marquee-type";typed.textContent="We can help you build a website.";
+  writing.appendChild(lead);writing.appendChild(typed);marquee.appendChild(writing);
   var track=document.createElement("div");track.className="ka-hero-marquee-track";
   var messages=["We can help you build a website","Turn your idea into a working app","Automate repetitive business tasks","Design digital tools for real people","Build smarter systems for East Africa"];
-  var repeated=messages.concat(messages);
-  repeated.forEach(function(message){var item=document.createElement("span");item.innerHTML='<i aria-hidden="true">✦</i><b></b>';item.querySelector("b").textContent=message;track.appendChild(item);});
-  marquee.appendChild(track);statement.parentNode.insertBefore(marquee,statement.nextSibling);
+  messages.concat(messages).forEach(function(message){var item=document.createElement("span");item.innerHTML='<i aria-hidden="true">✦</i><b></b>';item.querySelector("b").textContent=message;track.appendChild(item);});
+  marquee.appendChild(track);
+  if(hero)hero.appendChild(marquee);
+  if(!reduce){
+    var words=["We can help you build a website.","Turn your idea into a working app.","Automate repetitive business tasks.","Create a digital presence that gets noticed."];
+    var wordIndex=0,charIndex=words[0].length,removing=true;
+    function writeMarquee(){
+      if(removing){charIndex--;typed.textContent=words[wordIndex].slice(0,Math.max(0,charIndex));if(charIndex<=0){removing=false;wordIndex=(wordIndex+1)%words.length;}}
+      else{var next=words[wordIndex];charIndex++;typed.textContent=next.slice(0,charIndex);if(charIndex>=next.length){removing=true;window.setTimeout(writeMarquee,2100);return;}}
+      window.setTimeout(writeMarquee,removing?38:58);
+    }
+    window.setTimeout(writeMarquee,2400);
+  }
  }
 }
 })();
