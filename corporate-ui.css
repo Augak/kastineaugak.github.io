@@ -114,7 +114,7 @@ body :where(.btn,.button,button[type=submit],input[type=submit]){border-radius:9
 .ka-depth-art svg{position:absolute;width:min(46vw,620px);height:auto;right:-8vw;top:18vh;overflow:visible;transform:translate3d(0,var(--ka-scroll-y,0px),0) rotate(var(--ka-scroll-r,0deg));transform-origin:center;transition:opacity .3s ease}
 .ka-depth-art .ka-depth-secondary{width:min(32vw,430px);left:-9vw;right:auto;top:66vh;opacity:.52;transform:translate3d(0,var(--ka-scroll-y2,0px),0) rotate(var(--ka-scroll-r2,0deg))}
 .ka-depth-art path,.ka-depth-art circle,.ka-depth-art ellipse{vector-effect:non-scaling-stroke}
-main,.navbar,.footer,.basic-phone-promo{position:relative;z-index:1}
+.navbar,.footer{position:relative;z-index:2}
 .ka-reveal{opacity:0;transform:translate3d(0,28px,0) scale(.985);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .ka-reveal.ka-visible{opacity:1;transform:none}
 .ka-reveal-delay-1{transition-delay:.08s}.ka-reveal-delay-2{transition-delay:.16s}.ka-reveal-delay-3{transition-delay:.24s}
