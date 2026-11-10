@@ -58,3 +58,8 @@
 .admin-login-content h2{font-size:clamp(1.55rem,3vw,2rem)}
 .admin-login-content .admin-help{line-height:1.6}
 @media(max-width:700px){.admin-login-panel{grid-template-columns:1fr}.admin-login-visual,.admin-login-visual img{min-height:260px;height:260px}.admin-login-visual img{object-position:center 20%}.admin-login-content{padding:22px 18px}}
+
+.admin-page{background:#0b1b30!important}
+.admin-page .admin-login-panel{display:block;max-width:520px!important;margin:22px auto!important;padding:clamp(25px,4vw,42px)!important;background:rgba(255,255,255,.96)!important}
+.admin-page .admin-login-visual{display:none!important}
+.admin-page .admin-login-content{padding:0!important}
