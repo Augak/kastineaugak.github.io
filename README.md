@@ -31,24 +31,33 @@ Push changes to `main` and enable GitHub Pages from repository settings using th
 
 ## Automated site quality checks
 
-GitHub Actions runs Lighthouse CI on pull requests and pushes to `main`, with a scheduled audit every Monday. The audit checks the homepage, About, Ventures, and Contact pages using three Lighthouse runs per page.
+GitHub Actions runs checks on pull requests and pushes to `main`, with a scheduled audit every Monday. All test dependencies are installed temporarily on GitHub-hosted runners; they are not added to the website or shipped to visitors.
 
-- Accessibility and SEO have minimum score gates; performance and best-practices scores are tracked as warnings initially so existing pages can be improved without blocking every contribution.
-- Lighthouse reports are uploaded to Lighthouse CI's temporary public report storage. Avoid putting private or unpublished content on the audited site.
-- Run the same audit locally with Node.js and npm installed:
+- **Lighthouse CI:** audits the homepage, About, Ventures, and Contact pages with three runs per page. Accessibility and SEO have minimum score gates; performance and best-practices scores are warnings initially.
+- **axe-core + Playwright:** scans those key pages for WCAG 2.1 A/AA and WCAG 2.0 A/AA accessibility issues. It uploads a JSON report as a workflow artifact. This is initially report-only.
+- **HTML validation:** checks HTML markup. It is initially report-only so existing markup can be improved gradually.
+- **Lychee:** checks local and external links in HTML, Markdown, XML, and text files. It is initially report-only because third-party websites can rate-limit automated checks.
+- **Prettier:** checks formatting without changing files. It is initially report-only to avoid a large automatic reformat of existing pages.
+- **Gitleaks:** scans repository history for accidentally committed secrets.
+- **Dependabot:** checks GitHub Actions references weekly and opens update pull requests.
 
-  ```bash
-  npm install --no-save --no-audit --no-fund @lhci/cli@0.14.0
-  python3 -m http.server 4173
-  ```
+Run Lighthouse locally with Node.js and npm installed:
 
-  In a second terminal, run `npx lhci autorun --config=./lighthouserc.json`.
+```bash
+npm install --no-save --no-audit --no-fund @lhci/cli@0.14.0
+python3 -m http.server 4173
+```
 
-The site remains a static GitHub Pages project; Lighthouse runs in CI and adds no JavaScript or download cost for visitors.
+In a second terminal, run `npx lhci autorun --config=./lighthouserc.json`.
 
+### Image optimization with Squoosh
 
-### Additional maintenance and security checks
+Use [Squoosh](https://squoosh.app/) manually when adding or replacing large images. Keep the original source image, compare the optimized result at mobile size, and update references only after checking the result. Prefer appropriately sized WebP/AVIF images with a compatible fallback where needed. No bulk conversion or destructive image rewrite runs automatically.
 
-- **HTML validation:** runs on every PR and push. It is initially report-only so legacy markup can be cleaned up progressively without blocking publishing.
-- **Secret scanning:** Gitleaks checks repository history for accidentally committed API keys, tokens, and credentials.
-- **Dependabot:** checks GitHub Actions references weekly and opens update PRs. This repository does not need a front-end package manager or visitor-side framework just to run these checks.
+### Real-device performance with WebPageTest
+
+Use [WebPageTest](https://www.webpagetest.org/) for occasional real-browser, network-throttled tests after meaningful design or image changes. The public service may require an account/API key for automation. Do not put API keys in source files; if automated testing is added later, store credentials only as GitHub Actions secrets. Lighthouse CI remains the automatic baseline and does not depend on WebPageTest.
+
+### Why no front-end packages?
+
+This is a lightweight static GitHub Pages site. The quality tools run only in CI or in a browser-based optimization workflow. They do not add React, Bootstrap, a bundler, analytics, or extra JavaScript to the visitor experience.
