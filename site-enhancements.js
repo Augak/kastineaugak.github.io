@@ -7,7 +7,7 @@
   wrap.id="kastine-language";
   wrap.className="kastine-language";
   wrap.setAttribute("aria-label","Website language");
-  wrap.innerHTML='<span class="kastine-language-label">Language</span><div id="google_translate_element"></div>';
+  wrap.innerHTML='<button type="button" class="ka-language-trigger" aria-label="Choose website language" aria-expanded="false" aria-controls="ka-language-panel" title="Language">🌐</button><div class="ka-language-panel" id="ka-language-panel"><div id="google_translate_element"></div></div>';
   header.appendChild(wrap);
   var style=document.createElement("style");
   style.textContent='.navbar{flex-wrap:wrap;gap:12px}header:not(.navbar) .kastine-language{padding:8px 14px;background:#10251f;justify-content:flex-end}.kastine-language{display:flex;align-items:center;gap:8px;margin-left:auto;color:#e2e8f0;font-size:.84rem}.kastine-language-label{font-weight:600}.kastine-language select{max-width:190px;min-height:36px;padding:6px 28px 6px 9px;border:1px solid #94a3b8;border-radius:4px;background:#fff;color:#17212b;font:inherit}.kastine-language .goog-te-gadget{color:#e2e8f0!important;font-family:inherit!important;font-size:0!important}.kastine-language .goog-te-gadget select{font-size:14px!important}.kastine-language .goog-logo-link,.kastine-language .goog-te-gadget span{font-size:11px!important}.kastine-language .goog-te-gadget img{vertical-align:middle}@media(max-width:700px){.kastine-language{width:100%;margin-left:0}.kastine-language select{max-width:100%;width:min(260px,100%)}}';
@@ -29,6 +29,9 @@
     s.async=true;
     document.head.appendChild(s);
   };
+  var trigger=wrap.querySelector(".ka-language-trigger");
+  trigger.addEventListener("click",function(){var open=wrap.classList.toggle("is-open");trigger.setAttribute("aria-expanded",String(open));if(open)load();});
+  document.addEventListener("click",function(event){if(!wrap.contains(event.target)){wrap.classList.remove("is-open");trigger.setAttribute("aria-expanded","false");}});
   var box=document.getElementById("google_translate_element");
   if(box){
     box.addEventListener("focusin",load,{once:true});
