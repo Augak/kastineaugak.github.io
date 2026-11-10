@@ -45,3 +45,10 @@ GitHub Actions runs Lighthouse CI on pull requests and pushes to `main`, with a 
   In a second terminal, run `npx lhci autorun --config=./lighthouserc.json`.
 
 The site remains a static GitHub Pages project; Lighthouse runs in CI and adds no JavaScript or download cost for visitors.
+
+
+### Additional maintenance and security checks
+
+- **HTML validation:** runs on every PR and push. It is initially report-only so legacy markup can be cleaned up progressively without blocking publishing.
+- **Secret scanning:** Gitleaks checks repository history for accidentally committed API keys, tokens, and credentials.
+- **Dependabot:** checks GitHub Actions references weekly and opens update PRs. This repository does not need a front-end package manager or visitor-side framework just to run these checks.
