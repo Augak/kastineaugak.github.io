@@ -34,7 +34,8 @@
   document.addEventListener("click",function(event){if(!wrap.contains(event.target)){wrap.classList.remove("is-open");trigger.setAttribute("aria-expanded","false");}});
   var box=document.getElementById("google_translate_element");
   function applyLanguage(code){
-    if(!code || code==="en") return;
+    if(!code) return;
+    if(code==="en"){document.documentElement.lang="en";document.documentElement.setAttribute("data-language","en");document.documentElement.style.setProperty("--ka-motion-hue","0deg");document.documentElement.style.setProperty("--ka-motion-saturation","1.15");return;}
     var hueMap={ar:150,bn:205,de:34,es:318,fr:278,hi:42,id:18,it:295,ja:215,ko:188,nl:24,pl:52,pt:330,ru:185,sw:12,tr:165,uk:205,ur:145,vi:260,"zh-CN":225};
     document.documentElement.lang=code;
     document.documentElement.setAttribute("data-language",code);
