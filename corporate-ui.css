@@ -339,3 +339,6 @@ body.admin-page,body.theme-blog:has(.newsletter-feature-panel),body.theme-contac
 .theme-home .hero-portrait-wrap:after{inset:0!important;z-index:-1!important;border-radius:50%!important;background:radial-gradient(ellipse at 50% 48%,rgba(93,174,220,.38),rgba(227,182,91,.15) 44%,transparent 72%)!important;filter:blur(18px)!important}
 .theme-home .hero-portrait{position:relative!important;z-index:2!important;width:100%!important;height:clamp(340px,40vw,490px)!important;max-height:none!important;object-fit:contain!important;object-position:center bottom!important;border:0!important;border-radius:0!important;box-shadow:none!important;filter:drop-shadow(0 17px 18px rgba(0,0,0,.28))!important;transform:translateY(12px)!important}
 @media(max-width:700px){.theme-home .hero-portrait-wrap{min-height:340px!important;aspect-ratio:auto!important}.theme-home .hero-portrait{height:340px!important}}
+
+/* No ambient starfield: the single starburst belongs only behind the homepage portrait. */
+.ka-cosmic-layer{display:none!important}
