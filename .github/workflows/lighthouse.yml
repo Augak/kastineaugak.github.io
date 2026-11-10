@@ -1,0 +1,57 @@
+name: Lighthouse and site quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "23 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lighthouse:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Lighthouse CI
+        run: npm install --no-save --no-audit --no-fund @lhci/cli@0.14.0
+
+      - name: Start local static site
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/kastine-site.log 2>&1 &
+          echo $! > /tmp/kastine-site.pid
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/kastine-site.log
+          exit 1
+
+      - name: Run Lighthouse audits
+        run: npx lhci autorun --config=./lighthouserc.json
+
+      - name: Stop local static site
+        if: always()
+        run: |
+          if [ -f /tmp/kastine-site.pid ]; then
+            kill "$(cat /tmp/kastine-site.pid)" || true
+          fi
