@@ -87,7 +87,7 @@ jobs:
           try {
             for (const path of paths) {
               const page = await browser.newPage();
-              await page.goto(`http://127.0.0.1:4173${path}`, { waitUntil: 'networkidle', timeout: 30000 });
+              await page.goto(`http://127.0.0.1:4173${path}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
               const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
               results.push({ path, violations: result.violations.map(({ id, impact, description, help, nodes }) => ({ id, impact, description, help, nodeCount: nodes.length })) });
               console.log(`${path}: ${result.violations.length} axe-core violation types`);
