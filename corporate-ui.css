@@ -311,3 +311,6 @@ body .public-references li{margin:.55rem 0}
 
 /* Blog keyword and guiding-topic filters */
 .blog-filter-heading{flex:0 0 100%;display:block;margin:0 0 2px;color:var(--ka-muted,#617087);font-size:.82rem;font-weight:750;letter-spacing:.04em}.blog-categories{align-items:center}.blog-filter{border-radius:7px!important;min-height:38px;padding:7px 12px!important;font-weight:600}.blog-filter.is-active{background:#1769aa!important;border-color:#1769aa!important;color:#fff!important}.blog-filter:focus-visible{outline:3px solid #e3b65b!important;outline-offset:2px}
+
+/* Show more of the upper portrait so the face is not clipped by the hero crop. */
+.theme-home .hero-portrait{object-position:center 5%!important}
