@@ -287,3 +287,23 @@ body.admin-page,body.theme-blog:has(.newsletter-feature-panel),body.theme-contac
 .theme-home .hero-portrait-wrap:after{content:none!important;display:none!important}
 .theme-home .hero-portrait{position:relative!important;z-index:1!important;width:100%!important;height:clamp(340px,40vw,490px)!important;max-height:none!important;object-fit:cover!important;object-position:center 22%!important;clip-path:polygon(50% 0%,61% 27%,91% 13%,79% 43%,100% 60%,68% 68%,75% 100%,50% 82%,25% 100%,32% 68%,0% 60%,21% 43%,9% 13%,39% 27%)!important;border:0!important;border-radius:0!important;box-shadow:none!important;filter:none!important;transform:none!important}
 @media(max-width:700px){.theme-home .hero-portrait-wrap{min-height:320px!important}.theme-home .hero-portrait{height:340px!important;object-position:center 20%!important}}
+
+/* GEO content sections: readable editorial rhythm and native, accessible FAQs. */
+body :where(.profile-overview,.working-principles,.regional-context,.selected-capabilities,.homepage-faq,.public-references){padding:clamp(38px,5vw,66px) 0;background:#fff}
+body :where(.profile-overview,.working-principles,.regional-context,.selected-capabilities,.homepage-faq,.public-references) h2{max-width:850px;margin:0 0 14px;font-size:clamp(1.55rem,3vw,2.15rem)}
+body :where(.profile-overview,.working-principles,.regional-context,.selected-capabilities,.homepage-faq,.public-references) p{max-width:900px;color:#42536a}
+body :where(.profile-overview,.working-principles,.selected-capabilities) .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:22px}
+body :where(.profile-overview,.working-principles,.selected-capabilities) .card{height:100%}
+body :where(.homepage-faq,.bio-block) details{border-bottom:1px solid var(--ka-line);padding:0}
+body :where(.homepage-faq,.bio-block) details:first-of-type{border-top:1px solid var(--ka-line)}
+body :where(.homepage-faq,.bio-block) details summary{position:relative;list-style:none;padding:17px 38px 17px 2px;color:var(--ka-ink);font-weight:700;line-height:1.5}
+body :where(.homepage-faq,.bio-block) details summary::-webkit-details-marker{display:none}
+body :where(.homepage-faq,.bio-block) details summary::after{content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:1.35rem;font-weight:400;color:var(--ka-blue)}
+body :where(.homepage-faq,.bio-block) details[open] summary::after{content:"−"}
+body :where(.homepage-faq,.bio-block) details p{padding:0 34px 16px 2px;margin:0;max-width:850px;color:#42536a}
+body .selected-capabilities .table{margin-top:18px;color:var(--ka-ink);vertical-align:top}
+body .selected-capabilities .table thead th{background:#edf3f8;color:#1d3550;font-weight:700}
+body .selected-capabilities .table th,body .selected-capabilities .table td{padding:13px 14px;border-color:var(--ka-line)}
+body .public-references ul{padding-left:1.25rem;color:#42536a}
+body .public-references li{margin:.55rem 0}
+@media(max-width:700px){body :where(.profile-overview,.working-principles,.selected-capabilities) .grid{grid-template-columns:1fr}}
