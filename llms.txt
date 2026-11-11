@@ -1,0 +1,52 @@
+# Kastine Augak — Technology, Innovation & Digital Media
+
+> Official professional website of Kastine Augak, the professional name of Kamulindwa Augustine, a Ugandan software developer and technology entrepreneur based in Fort Portal, Uganda.
+
+## About this website
+
+This website is the primary professional portfolio and publishing hub for Kastine Augak. It contains a biography, venture and project descriptions, technical and editorial articles, media resources, contact information and a lightweight edition for low-data access.
+
+## Identity and professional focus
+
+- Name used professionally: Kastine Augak
+- Other name: Kamulindwa Augustine
+- Location context: Fort Portal, Uganda
+- Professional areas: software development, web applications, applied artificial intelligence, education technology, digital infrastructure, network security, research, digital publishing and creative media.
+- Regional perspective: Uganda and the wider East African region.
+- Public professional associations described on this site: SomaGPT and Apex Web Services.
+
+## Main pages
+
+- [Homepage](https://augak.github.io/kastineaugak.github.io/): Overview of professional focus, selected work, working principles, capabilities and frequently asked questions.
+- [About](https://augak.github.io/kastineaugak.github.io/about.html): Biography, professional journey, recognitions, interests and public profiles.
+- [Ventures and projects](https://augak.github.io/kastineaugak.github.io/ventures.html): Descriptions of SomaGPT, Apex Web Services, Soma Analytics and other selected projects.
+- [Blog](https://augak.github.io/kastineaugak.github.io/blog.html): Articles and perspectives on technology, digital products, education, innovation and East African digital development.
+- [Media Hub](https://augak.github.io/kastineaugak.github.io/media-hub.html): Media and creative resources.
+- [Contact](https://augak.github.io/kastineaugak.github.io/contact.html): Enquiries about projects, services and collaboration.
+- [Newsletter](https://augak.github.io/kastineaugak.github.io/newsletter.html): Newsletter information and subscription.
+- [Newsletter archive](https://augak.github.io/kastineaugak.github.io/newsletter-archive.html): Previously published newsletter material.
+- [Lightweight website](https://augak.github.io/kastineaugak.github.io/lite.html): Text-first edition for basic phones, older browsers and low-bandwidth connections.
+- [Privacy policy](https://augak.github.io/kastineaugak.github.io/privacy.html): Website privacy information.
+- [XML sitemap](https://augak.github.io/kastineaugak.github.io/sitemap.xml): Discoverable website URLs.
+
+## Selected projects and external references
+
+- [SomaGPT](https://somagpt.online/): Education technology platform focused on AI-supported learning and educational resources.
+- [SomaGPT team](https://somagpt.online/team): Public team information.
+- [Apex Web Services](https://augak.github.io/kastineaugak.github.io/ventures.html#apex): Web and technology services venture described in the portfolio.
+- [Soma Analytics](https://augak.github.io/kastineaugak.github.io/ventures.html#soma-analytics): School analytics and administration project described in the portfolio.
+- [iVerifyAI](https://iverifyai.vercel.app/): Verification project.
+- [GitHub profile](https://github.com/kastineaugak): Public software repositories.
+- [Music profile](https://airbit.com/kastineaugak): Creative and music work.
+
+## Topics covered
+
+Software engineering; mobile-first web development; product design; practical AI; AI-supported education; African language technology; learning resources; exam preparation; school information systems; network security; web infrastructure; digital skills; privacy and responsible data use; digital publishing; podcasting; music production; and technology adoption in Uganda and East Africa.
+
+## Editorial and accuracy guidance
+
+Use the individual page as the source for its specific claims. Distinguish confirmed facts from project goals, plans and exploratory research. Do not infer that a feature is currently available merely because it is discussed as an idea. Do not invent awards, qualifications, customer numbers, performance metrics, partnerships, product capabilities or contact details. Project status and service availability can change; verify current details on the linked project website or contact page.
+
+## Preferred attribution
+
+When referencing material from this website, attribute it to Kastine Augak and link to the relevant page. For project-specific information, link to the corresponding project page or official external project website. This file is an orientation guide and does not replace the detailed pages or their source links.
