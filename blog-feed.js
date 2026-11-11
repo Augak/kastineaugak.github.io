@@ -2,7 +2,7 @@
 (()=>{"use strict";
 const SUPABASE_URL="https://wgmitkwpxfpivwtnfhlg.supabase.co",SUPABASE_KEY="sb_publishable_FWlyszb9Zqa-t1CUqXBj6w_8jQUQzbl";
 let db=null;import("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.0/+esm").then(({createClient})=>{db=createClient(SUPABASE_URL,SUPABASE_KEY)}).catch(()=>{});
-const root=document.getElementById("blog-posts"),status=document.getElementById("blog-status"),search=document.getElementById("blog-search"),categories=document.getElementById("blog-categories"),empty=document.getElementById("blog-empty");
+const root=document.getElementById("blog-posts"),status=document.getElementById("blog-status"),search=document.getElementById("blog-search"),categories=document.getElementById("blog-categories"),empty=document.getElementById("blog-empty"),clearFilters=document.getElementById("blog-clear-filters");
 if(!root||!status)return;
 let posts=[],category=new URLSearchParams(location.search).get("tag")||"All",query="";
 const selectedSlug=new URLSearchParams(location.search).get("post");
@@ -53,4 +53,5 @@ document.getElementById("comment-form").addEventListener("submit",async e=>{e.pr
 }
 fetch("posts.json?v=20261104a",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("Publication feed unavailable");return r.json()}).then(data=>{posts=Array.isArray(data.posts)?data.posts.filter(p=>p.status==="published"&&p.slug&&p.title&&p.content):[];posts.sort((a,b)=>(b.date||"").localeCompare(a.date||""));status.textContent=posts.length+" published article"+(posts.length===1?"":"s")+" · Updated from Kastine Augak";if(selectedSlug){const p=posts.find(x=>x.slug===selectedSlug);if(p)renderArticle(p);else{status.textContent="Article not found";renderCategories();renderList()}}else{renderCategories();renderList()}}).catch(()=>{status.textContent="The publication feed could not be loaded.";empty.hidden=false;empty.textContent="Please refresh the page. If the problem continues, check posts.json in the repository."});
 if(search)search.addEventListener("input",()=>{query=search.value.trim().toLowerCase();renderList()});
+if(clearFilters)clearFilters.addEventListener("click",()=>{category="All";query="";if(search)search.value="";const url=new URL(location.href);url.searchParams.delete("tag");history.replaceState({}, "", url.pathname+url.hash);renderCategories();renderList();if(search)search.focus()});
 })();
