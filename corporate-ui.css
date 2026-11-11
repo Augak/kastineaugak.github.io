@@ -314,3 +314,11 @@ body .public-references li{margin:.55rem 0}
 
 /* Show more of the upper portrait so the face is not clipped by the hero crop. */
 .theme-home .hero-portrait{object-position:center 5%!important}
+
+
+/* Blog keyword and guiding-topic filter controls. */
+.blog-search-wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:end}.blog-search-wrap .blog-search-label{grid-column:1/-1;margin:0}.blog-search-wrap .blog-search{grid-column:1/-1;margin:0}.blog-clear-filters{justify-self:start;min-height:40px;padding:8px 12px;border:1px solid var(--ka-line);border-radius:8px;background:#fff;color:var(--ka-ink);font:inherit;font-size:.86rem;font-weight:650;cursor:pointer}.blog-clear-filters:hover{border-color:var(--ka-blue);color:var(--ka-blue)}.blog-categories{gap:8px}.blog-filter{min-height:38px;border-radius:7px!important;padding:7px 12px!important;text-decoration:none!important}.blog-filter[aria-current=true]{background:var(--ka-navy)!important;color:#fff!important;border-color:var(--ka-navy)!important}.blog-filter-heading{flex:0 0 100%;color:var(--ka-muted);font-size:.86rem;font-weight:700}.blog-filter:focus-visible,.blog-clear-filters:focus-visible{outline:3px solid var(--ka-gold);outline-offset:2px}@media(max-width:700px){.blog-search-wrap{grid-template-columns:1fr}.blog-clear-filters{width:100%;justify-self:stretch}}
+/* Homepage portrait: slightly taller star frame and higher crop to keep the face visible. */
+.theme-home .hero-portrait-wrap{min-height:clamp(380px,43vw,530px)!important}
+.theme-home .hero-portrait{object-position:center 8%!important}
+@media(max-width:700px){.theme-home .hero-portrait-wrap{min-height:370px!important}.theme-home .hero-portrait{height:370px!important;object-position:center 6%!important}}
