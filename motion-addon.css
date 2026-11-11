@@ -13,3 +13,11 @@ body { isolation: isolate; }
 @media (prefers-reduced-motion: reduce) {
   #webgl-bg { display: none; }
 }
+
+/* Keep every original element readable without JavaScript; GSAP animates from() at runtime. */
+.ka-reveal,
+.ka-reveal.ka-visible {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
