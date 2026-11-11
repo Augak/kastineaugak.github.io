@@ -9,6 +9,9 @@
   var saveData = Boolean(connection && connection.saveData);
   var canUseThree = window.innerWidth > 768 && !saveData && !reduceMotion;
 
+  /* Start the CSS hero entrance immediately; it does not depend on a CDN. */
+  document.documentElement.classList.add("ka-motion-enabled");
+
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
       var script = document.createElement("script");
@@ -25,23 +28,7 @@
     var gsap = window.gsap;
     if (window.ScrollTrigger) gsap.registerPlugin(window.ScrollTrigger);
 
-    var hero = document.querySelector(".hero-section, .ka-page-hero, .page-hero, .profile-header");
-    if (hero) {
-      var heroTargets = [];
-      hero.querySelectorAll(".hero-portrait-wrap, .hero-copy > *, h1, .lead, .subtitle").forEach(function (node) {
-        if (heroTargets.indexOf(node) === -1) heroTargets.push(node);
-      });
-      if (heroTargets.length) {
-        gsap.from(heroTargets, {
-          y: -25,
-          opacity: 0,
-          duration: .78,
-          ease: "power2.out",
-          stagger: .075,
-          clearProps: "transform,opacity"
-        });
-      }
-    }
+    /* Hero entrance is handled by local CSS so it works even if GSAP/CDN fails. */
 
     if (!window.ScrollTrigger) return;
     var headings = gsap.utils.toArray(
