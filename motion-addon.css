@@ -1,0 +1,23 @@
+/* Non-invasive motion add-on: no existing layout or typography rules are overridden. */
+#webgl-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  opacity: .28;
+}
+body { isolation: isolate; }
+@media (prefers-reduced-motion: reduce) {
+  #webgl-bg { display: none; }
+}
+
+/* Keep every original element readable without JavaScript; GSAP animates from() at runtime. */
+.ka-reveal,
+.ka-reveal.ka-visible {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
