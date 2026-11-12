@@ -40,7 +40,7 @@ class SitemapBuilderTests(unittest.TestCase):
             "other-project.html",
             '<link rel="canonical" href="https://augak.github.io/another-project/">',
         )
-        self.write_page("uncanonical.html", "<title>No canonical</title>")
+        self.write_page("uncanonical.html", '<title>No canonical</title>')
 
         urls = discover_urls(self.root)
         self.assertEqual(
@@ -64,14 +64,6 @@ class SitemapBuilderTests(unittest.TestCase):
         )
         self.assertEqual(discover_urls(self.root), [])
 
-    def test_noindex_directive_with_spaces_is_excluded(self) -> None:
-        self.write_page(
-            "hidden.html",
-            '<meta name="robots" content="index, noindex, nofollow">'
-            '<link rel="canonical" href="hidden.html">',
-        )
-        self.assertEqual(discover_urls(self.root), [])
-
     def test_amp_and_blog_aliases_deduplicate_by_canonical_url(self) -> None:
         canonical = SITE_BASE_URL + "posts/example.html"
         self.write_page("posts/example.html", f'<link rel="canonical" href="{canonical}">')
@@ -85,6 +77,14 @@ class SitemapBuilderTests(unittest.TestCase):
         urls = discover_urls(self.root)
         self.assertEqual(urls, [SITE_BASE_URL + "blog/", canonical])
 
+    def test_noindex_directive_with_spaces_is_excluded(self) -> None:
+        self.write_page(
+            "hidden.html",
+            '<meta name="robots" content="index, noindex, nofollow">'
+            '<link rel="canonical" href="hidden.html">',
+        )
+        self.assertEqual(discover_urls(self.root), [])
+
     def test_base_url_without_trailing_slash_is_normalized(self) -> None:
         self.write_page("index.html", '<link rel="canonical" href="./">')
         urls = discover_urls(self.root, SITE_BASE_URL.rstrip("/"))
@@ -93,8 +93,7 @@ class SitemapBuilderTests(unittest.TestCase):
     def test_multiple_canonical_links_fail_loudly(self) -> None:
         self.write_page(
             "broken.html",
-            '<link rel="canonical" href="one.html">'
-            '<link href="two.html" rel="canonical">',
+            '<link rel="canonical" href="one.html"><link href="two.html" rel="canonical">',
         )
         with self.assertRaisesRegex(ValueError, "expected at most one canonical"):
             discover_urls(self.root)
