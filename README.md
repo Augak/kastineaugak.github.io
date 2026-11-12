@@ -61,3 +61,17 @@ Use [WebPageTest](https://www.webpagetest.org/) for occasional real-browser, net
 ### Why no front-end packages?
 
 This is a lightweight static GitHub Pages site. The quality tools run only in CI or in a browser-based optimization workflow. They do not add React, Bootstrap, a bundler, analytics, or extra JavaScript to the visitor experience.
+
+## Sitemap integrity
+
+The XML sitemap is generated from page canonical links so newly published pages do not silently remain undiscoverable. Pages marked `noindex`, non-canonical aliases, AMP duplicates, templates and verification files are excluded.
+
+From the repository root:
+
+```bash
+python3 scripts/build_sitemap.py
+python3 scripts/build_sitemap.py --check
+python3 -m unittest discover -s tests -v
+```
+
+The GitHub Actions site-quality workflow runs the unit tests and checks that the committed `sitemap.xml` matches the current canonical pages. See [docs/SEO_INDEXING.md](docs/SEO_INDEXING.md) for Google Search Console submission guidance and the GitHub Pages project-site `robots.txt` limitation.
