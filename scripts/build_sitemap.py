@@ -110,7 +110,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--output", type=Path, default=None)
     parser.add_argument("--base-url", default=SITE_BASE_URL)
-    parser.add_argument("--check", action="store_true", help="fail if the committed sitemap is stale")
+    parser.add_argument(
+        "--check", action="store_true", help="fail if the committed sitemap is stale"
+    )
     args = parser.parse_args(argv)
 
     root = args.root.resolve()
