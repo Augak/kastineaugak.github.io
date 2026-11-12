@@ -17,6 +17,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  sitemap-integrity:
+    name: Canonical sitemap integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run sitemap unit tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Check committed sitemap
+        run: python3 scripts/build_sitemap.py --check
+
   lighthouse:
     name: Lighthouse CI
     runs-on: ubuntu-latest
