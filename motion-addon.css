@@ -34,10 +34,25 @@ body > header, body > main, body > footer { position: relative; z-index: 1; }
   #webgl-bg { display: none; }
 }
 
-/* Keep every original element readable without JavaScript; GSAP animates from() at runtime. */
-.ka-reveal,
-.ka-reveal.ka-visible {
-  opacity: 1;
-  transform: none;
-  transition: none;
+/* Scroll reveals only activate after the motion script has initialized.
+   Without JavaScript, with reduced motion, or without IntersectionObserver,
+   content remains visible and readable. */
+@media (prefers-reduced-motion: no-preference) {
+  .ka-motion-enabled .ka-reveal {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+    transition: opacity .62s ease, transform .62s cubic-bezier(.2,.7,.25,1);
+  }
+  .ka-motion-enabled .ka-reveal.ka-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ka-reveal,
+  .ka-reveal.ka-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
