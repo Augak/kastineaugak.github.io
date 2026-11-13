@@ -322,3 +322,12 @@ body .public-references li{margin:.55rem 0}
 .theme-home .hero-portrait-wrap{min-height:clamp(380px,43vw,530px)!important}
 .theme-home .hero-portrait{object-position:center 8%!important}
 @media(max-width:700px){.theme-home .hero-portrait-wrap{min-height:370px!important}.theme-home .hero-portrait{height:370px!important;object-position:center 6%!important}}
+
+
+/* Portrait framing: use a real crop so object-position can move the portrait upward. */
+.theme-home .hero-portrait-wrap{min-height:440px!important}
+.theme-home .hero-portrait{display:block;width:100%!important;height:440px!important;max-height:none!important;object-fit:cover!important;object-position:center 8%!important}
+@media(max-width:700px){
+  .theme-home .hero-portrait-wrap{min-height:370px!important}
+  .theme-home .hero-portrait{height:300px!important;object-position:center 6%!important}
+}
