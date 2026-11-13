@@ -9,6 +9,15 @@
   pointer-events: none;
   opacity: .28;
 }
+.theme-home .hero-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.theme-home .hero-section > .container {
+  position: relative;
+  z-index: 1;
+}
 body { isolation: isolate; }
 body > header, body > main, body > footer { position: relative; z-index: 1; }
 
