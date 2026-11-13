@@ -67,7 +67,11 @@
   async function addThreeBackground() {
     if (!canUseThree) return;
     var canvas = document.getElementById("webgl-bg");
-    if (!canvas || !window.WebGLRenderingContext) return;
+    var hero = document.querySelector(".theme-home .hero-section");
+    if (!canvas || !hero || !window.WebGLRenderingContext) return;
+
+    /* Keep the WebGL layer inside the hero: above its background, below its content. */
+    hero.insertBefore(canvas, hero.firstChild);
 
     try {
       var THREE = await import("https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js");
@@ -78,11 +82,13 @@
         powerPreference: "low-power"
       });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
-      renderer.setSize(window.innerWidth, window.innerHeight, false);
+      var heroWidth = hero.clientWidth || window.innerWidth;
+      var heroHeight = hero.clientHeight || window.innerHeight;
+      renderer.setSize(heroWidth, heroHeight, false);
       renderer.setClearColor(0x000000, 0);
 
       var scene = new THREE.Scene();
-      var camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, .1, 100);
+      var camera = new THREE.PerspectiveCamera(42, heroWidth / Math.max(heroHeight, 1), .1, 100);
       camera.position.z = 9;
 
       var geometry = new THREE.IcosahedronGeometry(3.15, 2);
@@ -106,9 +112,11 @@
       window.addEventListener("pointermove", onPointerMove, { passive: true });
 
       function resize() {
-        camera.aspect = window.innerWidth / Math.max(window.innerHeight, 1);
+        var width = hero.clientWidth || window.innerWidth;
+        var height = hero.clientHeight || window.innerHeight;
+        camera.aspect = width / Math.max(height, 1);
         camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight, false);
+        renderer.setSize(width, height, false);
       }
       window.addEventListener("resize", resize, { passive: true });
 
