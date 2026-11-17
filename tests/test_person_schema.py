@@ -39,7 +39,15 @@ def read_json_ld(filename: str) -> list[dict]:
     parser = JsonLdParser()
     parser.feed((ROOT / filename).read_text(encoding="utf-8"))
     parser.close()
-    return parser.blocks
+    # JSON-LD entities may be top-level nodes or members of an @graph.
+    entities: list[dict] = []
+    for block in parser.blocks:
+        graph = block.get("@graph")
+        if isinstance(graph, list):
+            entities.extend(item for item in graph if isinstance(item, dict))
+        else:
+            entities.append(block)
+    return entities
 
 
 class PersonalSchemaTests(unittest.TestCase):
