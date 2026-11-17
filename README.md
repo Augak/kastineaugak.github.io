@@ -5,7 +5,11 @@ Personal portfolio and technical publishing site for Kastine Augak (Kamulindwa A
 ## Live site
 
 - GitHub Pages: https://augak.github.io/kastineaugak.github.io/
-- Main pages: `index.html`, `about.html`, `ventures.html`, `work.html`, `blog.html`, `media-hub.html`, `connect.html`, `contact.html`, `privacy.html`, `terms.html`
+- Main pages: `index.html`, `about.html`, `ventures.html`, `work.html`, `blog.html`, `media-hub.html`, `connect.html`, `contact.html`, `privacy.html`, `terms.html`, `404.html`
+
+## Error handling
+
+GitHub Pages automatically serves the root `404.html` page when a requested path does not exist. The page provides clear routes back to the homepage, sitemap, selected work, articles, ventures, official profiles and contact page. It is intentionally excluded from the XML sitemap and marked `noindex`.
 
 ## Local preview
 
