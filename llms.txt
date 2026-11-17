@@ -21,6 +21,7 @@ This website is the primary professional portfolio and publishing hub for Kastin
 - [Homepage](https://augak.github.io/kastineaugak.github.io/): Overview of professional focus, selected work, working principles, capabilities and frequently asked questions.
 - [About](https://augak.github.io/kastineaugak.github.io/about.html): Biography, professional journey, recognitions, interests and public profiles.
 - [Ventures and projects](https://augak.github.io/kastineaugak.github.io/ventures.html): Descriptions of SomaGPT, Apex Web Services, Soma Analytics and other selected projects.
+- [Selected work and product lab](https://augak.github.io/kastineaugak.github.io/work.html): A status-labelled overview of venture work, independent products and research interests.
 - [Blog](https://augak.github.io/kastineaugak.github.io/blog.html): Articles and perspectives on technology, digital products, education, innovation and East African digital development.
 - [Media Hub](https://augak.github.io/kastineaugak.github.io/media-hub.html): Media and creative resources.
 - [Contact](https://augak.github.io/kastineaugak.github.io/contact.html): Enquiries about projects, services and collaboration.
