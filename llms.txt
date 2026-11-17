@@ -24,7 +24,10 @@ This website is the primary professional portfolio and publishing hub for Kastin
 - [Selected work and product lab](https://augak.github.io/kastineaugak.github.io/work.html): A status-labelled overview of venture work, independent products and research interests.
 - [Blog](https://augak.github.io/kastineaugak.github.io/blog.html): Articles and perspectives on technology, digital products, education, innovation and East African digital development.
 - [Media Hub](https://augak.github.io/kastineaugak.github.io/media-hub.html): Media and creative resources.
+- [Official websites and social profiles](https://augak.github.io/kastineaugak.github.io/connect.html): Links to the main portfolio, selected projects and public social channels.
 - [Contact](https://augak.github.io/kastineaugak.github.io/contact.html): Enquiries about projects, services and collaboration.
+- [Privacy notice](https://augak.github.io/kastineaugak.github.io/privacy.html): Information about website data, browser storage and publishing services.
+- [Website terms of use](https://augak.github.io/kastineaugak.github.io/terms.html): Terms for public pages and interactive publishing features.
 - [Newsletter](https://augak.github.io/kastineaugak.github.io/newsletter.html): Newsletter information and subscription.
 - [Newsletter archive](https://augak.github.io/kastineaugak.github.io/newsletter-archive.html): Previously published newsletter material.
 - [Lightweight website](https://augak.github.io/kastineaugak.github.io/lite.html): Text-first edition for basic phones, older browsers and low-bandwidth connections.
