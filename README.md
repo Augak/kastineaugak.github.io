@@ -62,6 +62,10 @@ Use [WebPageTest](https://www.webpagetest.org/) for occasional real-browser, net
 
 This is a lightweight static GitHub Pages site. The quality tools run only in CI or in a browser-based optimization workflow. They do not add React, Bootstrap, a bundler, analytics, or extra JavaScript to the visitor experience.
 
+## Personal identity structured data
+
+The homepage publishes a Schema.org `Person` entity for Kastine Augak (also known as Kamulindwa Augustine). The About page uses a `ProfilePage` whose `mainEntity` points to the same stable Person `@id`. The profile includes the public portrait, professional roles, areas of expertise, Fort Portal location context, organizations and verified public profile links. A unit test checks that the JSON-LD is valid, consistent across both pages, and has unique non-empty `sameAs` links.
+
 ## Sitemap integrity
 
 The XML sitemap is generated from page canonical links so newly published pages do not silently remain undiscoverable. Pages marked `noindex`, non-canonical aliases, AMP duplicates, templates and verification files are excluded.
