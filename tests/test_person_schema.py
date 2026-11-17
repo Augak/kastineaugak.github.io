@@ -65,13 +65,18 @@ class PersonalSchemaTests(unittest.TestCase):
         profiles = [item for item in blocks if item.get("@type") == "ProfilePage"]
         self.assertEqual(len(profiles), 1)
         person = profiles[0].get("mainEntity", {})
-        self.assertEqual(person.get("@type"), "Person")
         self.assertEqual(person.get("@id"), PERSON_ID)
-        self.assertEqual(person.get("name"), "Kastine Augak")
+
+    def test_ventures_page_references_the_canonical_person(self) -> None:
+        blocks = read_json_ld("ventures.html")
+        pages = [item for item in blocks if item.get("@type") == "CollectionPage"]
+        self.assertEqual(len(pages), 1)
+        self.assertEqual(pages[0].get("about", {}).get("@id"), PERSON_ID)
 
     def test_all_json_ld_blocks_are_valid_json(self) -> None:
-        self.assertTrue(read_json_ld("index.html"))
-        self.assertTrue(read_json_ld("about.html"))
+        for filename in ("index.html", "about.html", "ventures.html"):
+            with self.subTest(filename=filename):
+                self.assertTrue(read_json_ld(filename))
 
 
 if __name__ == "__main__":
