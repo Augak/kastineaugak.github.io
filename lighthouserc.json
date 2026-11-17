@@ -5,7 +5,8 @@
         "http://127.0.0.1:4173/",
         "http://127.0.0.1:4173/about.html",
         "http://127.0.0.1:4173/ventures.html",
-        "http://127.0.0.1:4173/contact.html"
+        "http://127.0.0.1:4173/contact.html",
+        "http://127.0.0.1:4173/work.html"
       ],
       "numberOfRuns": 3,
       "settings": {
