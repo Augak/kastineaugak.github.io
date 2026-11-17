@@ -100,12 +100,12 @@ jobs:
           const results = [];
           try {
             for (const path of paths) {
-              const context = await browser.newContext();
+              const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true });
               const page = await context.newPage();
               await page.goto(`http://127.0.0.1:4173${path}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
               const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
-              results.push({ path, violations: result.violations.map(({ id, impact, description, help, nodes }) => ({ id, impact, description, help, nodeCount: nodes.length })) });
-              console.log(`${path}: ${result.violations.length} axe-core violation types`);
+              const horizontalOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);\n              results.push({ path, viewport: '390x844 mobile', horizontalOverflow, violations: result.violations.map(({ id, impact, description, help, nodes }) => ({ id, impact, description, help, nodeCount: nodes.length })) });
+              console.log(`${path} (390x844): ${result.violations.length} axe-core violation types; horizontal overflow: ${horizontalOverflow}`);
               await context.close();
             }
           } finally {
