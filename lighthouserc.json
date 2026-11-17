@@ -9,7 +9,7 @@
       ],
       "numberOfRuns": 3,
       "settings": {
-        "preset": "desktop",
+        "preset": "mobile",
         "chromeFlags": "--no-sandbox --headless"
       }
     },
