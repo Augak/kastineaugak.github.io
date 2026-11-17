@@ -30,8 +30,6 @@ jobs:
         run: python3 -m unittest discover -s tests -v
       - name: Check committed sitemap
         run: python3 scripts/build_sitemap.py --check
-      - name: Validate personal Schema.org identity data
-        run: python3 -m unittest tests.test_person_schema -v
 
   lighthouse:
     name: Lighthouse CI
