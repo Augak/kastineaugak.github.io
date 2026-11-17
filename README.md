@@ -5,7 +5,7 @@ Personal portfolio and technical publishing site for Kastine Augak (Kamulindwa A
 ## Live site
 
 - GitHub Pages: https://augak.github.io/kastineaugak.github.io/
-- Main pages: `index.html`, `about.html`, `ventures.html`, `work.html`, `blog.html`, `media-hub.html`, `contact.html`
+- Main pages: `index.html`, `about.html`, `ventures.html`, `work.html`, `blog.html`, `media-hub.html`, `connect.html`, `contact.html`, `privacy.html`, `terms.html`
 
 ## Local preview
 
