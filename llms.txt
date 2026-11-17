@@ -10,6 +10,7 @@ This website is the primary professional portfolio and publishing hub for Kastin
 
 - Name used professionally: Kastine Augak
 - Other name: Kamulindwa Augustine
+- Canonical machine-readable identity: Schema.org Person entity at https://augak.github.io/kastineaugak.github.io/#person
 - Location context: Fort Portal, Uganda
 - Professional areas: software development, web applications, applied artificial intelligence, education technology, digital infrastructure, network security, research, digital publishing and creative media.
 - Regional perspective: Uganda and the wider East African region.

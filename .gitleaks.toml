@@ -1,0 +1,11 @@
+title = "Kastine Augak portfolio secret scanning"
+
+[allowlist]
+description = "Supabase publishable keys are designed for use in public browser clients; this narrow exception does not allow secret or service-role keys."
+paths = [
+  '''article-engagement\.js''',
+  '''blog-feed\.js''',
+]
+regexes = [
+  '''sb_publishable_[A-Za-z0-9_-]+''',
+]

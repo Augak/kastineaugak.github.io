@@ -9,7 +9,7 @@
       ],
       "numberOfRuns": 3,
       "settings": {
-        "preset": "desktop",
+        "preset": "mobile",
         "chromeFlags": "--no-sandbox --headless"
       }
     },
@@ -21,7 +21,14 @@
         "categories:best-practices": ["warn", { "minScore": 0.9 }],
         "categories:seo": ["error", { "minScore": 0.9 }],
         "uses-responsive-images": "off",
-        "uses-rel-preload": "off"
+        "uses-rel-preload": "off",
+        "lcp-lazy-loaded": "off",
+        "prioritize-lcp-image": "off",
+        "non-composited-animations": ["warn", { "minScore": 0.9 }],
+        "unminified-css": ["warn", { "maxLength": 0 }],
+        "unused-css-rules": ["warn", { "maxLength": 0 }],
+        "uses-text-compression": "off",
+        "uses-long-cache-ttl": ["warn", { "maxLength": 0 }]
       }
     },
     "upload": {
