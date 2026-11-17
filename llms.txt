@@ -41,7 +41,7 @@ This website is the primary professional portfolio and publishing hub for Kastin
 - [Apex Web Services](https://augak.github.io/kastineaugak.github.io/ventures.html#apex): Web and technology services venture described in the portfolio.
 - [Soma Analytics](https://augak.github.io/kastineaugak.github.io/ventures.html#soma-analytics): School analytics and administration project described in the portfolio.
 - [iVerifyAI](https://iverifyai.vercel.app/): Verification project.
-- [GitHub profile](https://github.com/kastineaugak): Public software repositories.
+- [GitHub profile](https://github.com/Augak): Public software repositories.
 - [Music profile](https://airbit.com/kastineaugak): Creative and music work.
 
 ## Topics covered
