@@ -43,3 +43,18 @@
 
 /* Lightweight Speed Insights panel */
 .speed-summary{padding:16px 18px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;margin:14px 0;color:#475569}.speed-summary p{margin:5px 0;line-height:1.5}.speed-summary strong{color:#172033}.speed-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:14px 0}.speed-metric{display:grid;gap:7px;padding:17px;background:#fff;border:1px solid #e2e8f0;border-radius:10px}.speed-metric span{font-size:.82rem;color:#64748b}.speed-metric strong{font-size:1.5rem;color:#172033}.speed-metric small{font-weight:700;color:#2563eb}.speed-link{display:inline-flex;margin:5px 0;text-decoration:none}.analytics-box p{margin:9px 0;color:#475569}
+
+/* Shared public-site visual language for the private publishing desk. */
+.admin-page .navbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px clamp(16px,4vw,40px);background:#090d16;color:#fff}
+.admin-page .navbar .logo{color:#fff;text-decoration:none;font-weight:800;letter-spacing:.02em}
+.admin-page .navbar nav{display:flex;align-items:center;flex-wrap:wrap;gap:8px 18px}
+.admin-page .navbar nav a{color:#dbe6f2;text-decoration:none;font-size:.9rem;font-weight:600}
+.admin-page .navbar nav a:hover,.admin-page .navbar nav a:focus-visible{color:#f0c978;text-decoration:underline;text-underline-offset:4px}
+.admin-page :focus-visible{outline:3px solid #c99b42;outline-offset:3px}
+.admin-page .admin-intro{border-bottom:1px solid #dbe3ed;padding-bottom:18px}
+.admin-page .admin-kicker{color:#245b86}
+.admin-page .admin-panel,.admin-page .submission-card,.admin-page .analytics-box,.admin-page .metric-card{box-shadow:0 8px 24px rgba(15,23,42,.045)}
+.admin-page .admin-primary{background:#17466d;border-color:#17466d}
+.admin-page .admin-primary:hover{background:#123956}
+.admin-page .desk-tabs button.selected{background:#17466d;border-color:#17466d}
+@media(max-width:640px){.admin-page .navbar{align-items:flex-start;flex-direction:column}.admin-page .navbar nav{gap:8px 14px}}
