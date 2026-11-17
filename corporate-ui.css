@@ -331,3 +331,10 @@ body .public-references li{margin:.55rem 0}
   .theme-home .hero-portrait-wrap{min-height:370px!important}
   .theme-home .hero-portrait{height:300px!important;object-position:center 6%!important}
 }
+
+/* Readable body copy on the light card surfaces used across profile pages. */
+body.theme-home .card p,
+body.theme-about .card p,
+body.theme-contact .card p {
+    color: #475569 !important;
+}
