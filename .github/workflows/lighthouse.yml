@@ -119,7 +119,7 @@ jobs:
           NODE
       - name: Upload accessibility report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: axe-accessibility-report
           path: quality-reports/axe-results.json
@@ -159,7 +159,7 @@ jobs:
           format: markdown
       - name: Upload link report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lychee-link-report
           path: lychee-report.md
