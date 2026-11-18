@@ -413,3 +413,27 @@ body.theme-contact .card p {
   visibility: visible !important;
   transform: none !important;
 }
+
+
+/* Contributor welcome copy: keep the callout above hero decoration and paint its text explicitly. */
+.admin-page main .admin-intro.ka-page-hero {
+  position: relative;
+  isolation: isolate;
+}
+.admin-page main .admin-intro.ka-page-hero > .contributor-welcome {
+  position: relative !important;
+  z-index: 2 !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  color: #26384d !important;
+  -webkit-text-fill-color: #26384d !important;
+  background: #eaf0f7 !important;
+  border-left: 4px solid #f0c978 !important;
+  padding: 16px 18px !important;
+  line-height: 1.65 !important;
+  overflow: visible !important;
+}
+.admin-page main .admin-intro.ka-page-hero::after {
+  z-index: 0;
+}
