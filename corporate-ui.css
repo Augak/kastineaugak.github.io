@@ -404,3 +404,12 @@ body.theme-contact .card p {
   .admin-page .admin-intro h1 { font-size: clamp(1.85rem, 8vw, 2.6rem); }
   .admin-page .admin-panel { min-width: 0; }
 }
+
+
+/* Contributor page: keep the welcome copy visible even if scroll-reveal JS is delayed or fails. */
+.admin-page .admin-intro.ka-reveal,
+.admin-page .admin-intro.ka-reveal.ka-visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
