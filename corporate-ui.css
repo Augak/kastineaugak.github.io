@@ -338,3 +338,69 @@ body.theme-about .card p,
 body.theme-contact .card p {
     color: #475569 !important;
 }
+
+
+/* Submit page text rendering repair (18 Nov 2026).
+   Keep text glyphs visible and prevent tight heading tracking or clipping on mobile browsers. */
+.admin-page .admin-wrap,
+.admin-page .admin-intro,
+.admin-page .admin-intro h1,
+.admin-page .admin-intro p,
+.admin-page .admin-kicker,
+.admin-page .submission-legal-note,
+.admin-page .submission-legal-note a,
+.admin-page .admin-panel,
+.admin-page .admin-panel label,
+.admin-page .admin-panel label > *,
+.admin-page .admin-message {
+  color: #172033;
+  -webkit-text-fill-color: currentColor;
+  font-kerning: normal;
+  font-variant-ligatures: normal;
+  text-rendering: auto;
+  visibility: visible;
+  overflow: visible;
+}
+.admin-page .admin-intro h1 {
+  color: #111827;
+  letter-spacing: normal;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.admin-page .admin-intro p,
+.admin-page .submission-legal-note,
+.admin-page .admin-panel label {
+  letter-spacing: normal;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.admin-page .admin-panel input,
+.admin-page .admin-panel textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  color: #172033;
+  -webkit-text-fill-color: #172033;
+  background: #fff;
+  font: inherit;
+  letter-spacing: normal;
+  line-height: 1.5;
+  opacity: 1;
+}
+.admin-page .admin-panel input::placeholder,
+.admin-page .admin-panel textarea::placeholder {
+  color: #64748b;
+  -webkit-text-fill-color: #64748b;
+  opacity: 1;
+}
+.admin-page .admin-panel .admin-primary {
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+}
+@media (max-width: 600px) {
+  .admin-page .admin-wrap { padding-inline: 16px; }
+  .admin-page .admin-intro h1 { font-size: clamp(1.85rem, 8vw, 2.6rem); }
+  .admin-page .admin-panel { min-width: 0; }
+}
