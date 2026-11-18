@@ -71,3 +71,95 @@
     watchTranslateSelect();
   }
 })();
+
+/* Persistent, banner-free site translation.
+   Google Translate's selection is stored across page navigation and restored on every page. */
+(function(){
+  "use strict";
+  var KEY="kastine-site-language";
+  var root=document.documentElement;
+  var host=location.hostname;
+  function readCookie(name){
+    var match=document.cookie.match(new RegExp("(?:^|; )"+name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"=([^;]*)"));
+    return match?decodeURIComponent(match[1]):"";
+  }
+  function writeTranslateCookie(code){
+    var value="/en/"+(code==="en"?"en":code);
+    document.cookie="googtrans="+encodeURIComponent(value)+"; path=/; SameSite=Lax";
+    if(host && host.indexOf(".")!==-1) document.cookie="googtrans="+encodeURIComponent(value)+"; domain="+host+"; path=/; SameSite=Lax";
+  }
+  function cookieLanguage(){
+    var value=readCookie("googtrans");
+    var parts=value.split("/");
+    return parts.length>2?parts[2]:"";
+  }
+  var saved="";
+  try{saved=localStorage.getItem(KEY)||"";}catch(e){}
+  if(!saved) saved=cookieLanguage();
+  if(saved){
+    root.setAttribute("data-language",saved);
+    if(saved!=="en") root.lang=saved;
+    writeTranslateCookie(saved);
+  }
+  var style=document.createElement("style");
+  style.id="ka-translate-banner-suppression";
+  style.textContent=[
+    "iframe.goog-te-banner-frame,.goog-te-banner-frame.skiptranslate{display:none!important;visibility:hidden!important;height:0!important}",
+    "body{top:0!important;position:static!important}",
+    "html body{top:0!important}",
+    ".goog-te-balloon-frame{display:none!important}",
+    "#goog-gt-tt,.goog-tooltip,.goog-tooltip:hover{display:none!important}",
+    ".goog-text-highlight{background:transparent!important;box-shadow:none!important}"
+  ].join("");
+  document.head.appendChild(style);
+  function remember(code){
+    if(!code) return;
+    try{localStorage.setItem(KEY,code);}catch(e){}
+    writeTranslateCookie(code);
+    root.setAttribute("data-language",code);
+    root.lang=code==="en"?"en":code;
+  }
+  function bindSelect(select){
+    if(!select || select.dataset.kaPersistentBound) return;
+    select.dataset.kaPersistentBound="true";
+    select.addEventListener("change",function(){
+      var code=select.value||"en";
+      remember(code);
+      if(code==="en") window.setTimeout(function(){location.reload();},80);
+    });
+    if(saved && saved!=="en"){
+      var option=Array.prototype.find.call(select.options,function(item){return item.value===saved;});
+      if(option && select.value!==saved){
+        select.value=saved;
+        select.dispatchEvent(new Event("change",{bubbles:true}));
+      }
+    }
+  }
+  function watch(){
+    var box=document.getElementById("google_translate_element");
+    if(!box) return;
+    var select=box.querySelector("select.goog-te-combo");
+    bindSelect(select);
+    if(!box.dataset.kaPersistentObserver && "MutationObserver" in window){
+      box.dataset.kaPersistentObserver="true";
+      new MutationObserver(function(){
+        bindSelect(box.querySelector("select.goog-te-combo"));
+      }).observe(box,{childList:true,subtree:true});
+    }
+  }
+  watch();
+  if(saved && saved!=="en"){
+    var trigger=document.querySelector("#kastine-language .ka-language-trigger");
+    if(trigger) trigger.click();
+    watch();
+  }
+  if("MutationObserver" in window){
+    new MutationObserver(function(){
+      document.querySelectorAll("iframe.goog-te-banner-frame,.goog-te-banner-frame").forEach(function(frame){
+        frame.style.setProperty("display","none","important");
+        frame.style.setProperty("visibility","hidden","important");
+      });
+      if(document.body && document.body.style.top && document.body.style.top!=="0px") document.body.style.setProperty("top","0px","important");
+    }).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:["style"]});
+  }
+})();
