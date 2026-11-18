@@ -85,8 +85,7 @@
   }
   function writeTranslateCookie(code){
     var value="/en/"+(code==="en"?"en":code);
-    document.cookie="googtrans="+encodeURIComponent(value)+"; path=/; SameSite=Lax";
-    if(host && host.indexOf(".")!==-1) document.cookie="googtrans="+encodeURIComponent(value)+"; domain="+host+"; path=/; SameSite=Lax";
+    document.cookie="googtrans="+value+"; path=/; SameSite=Lax";
   }
   function cookieLanguage(){
     var value=readCookie("googtrans");
@@ -105,7 +104,7 @@
   style.id="ka-translate-banner-suppression";
   style.textContent=[
     "iframe.goog-te-banner-frame,.goog-te-banner-frame.skiptranslate{display:none!important;visibility:hidden!important;height:0!important}",
-    "body{top:0!important;position:static!important}",
+    "body{top:0!important}",
     "html body{top:0!important}",
     ".goog-te-balloon-frame{display:none!important}",
     "#goog-gt-tt,.goog-tooltip,.goog-tooltip:hover{display:none!important}",
@@ -149,8 +148,14 @@
   }
   watch();
   if(saved && saved!=="en"){
-    var trigger=document.querySelector("#kastine-language .ka-language-trigger");
-    if(trigger) trigger.click();
+    var translateScript=document.getElementById("kastine-google-translate");
+    if(!translateScript){
+      translateScript=document.createElement("script");
+      translateScript.id="kastine-google-translate";
+      translateScript.src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      translateScript.async=true;
+      document.head.appendChild(translateScript);
+    }
     watch();
   }
   if("MutationObserver" in window){
