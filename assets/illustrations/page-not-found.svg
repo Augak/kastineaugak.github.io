@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+<title id="title">A missing page illustration</title><desc id="desc">A person following a dotted path toward a signpost, with one route ending at a small broken link symbol.</desc>
+<defs><linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7f3fb"/><stop offset="1" stop-color="#f6f8fb"/></linearGradient></defs>
+<rect x="34" y="22" width="572" height="316" rx="28" fill="url(#sky)"/>
+<circle cx="510" cy="83" r="34" fill="#f4d98d" opacity=".8"/><path d="M78 278c66-52 123-55 176-16s95 43 146 4 105-40 164 3" fill="none" stroke="#b8d3e4" stroke-width="3" stroke-linecap="round"/>
+<path d="M105 263c54-58 100-42 143-7 33 27 61 31 89 11" fill="none" stroke="#1769aa" stroke-width="5" stroke-linecap="round" stroke-dasharray="3 13"/>
+<path d="M337 266c31-29 61-38 93-31" fill="none" stroke="#1769aa" stroke-width="5" stroke-linecap="round" stroke-dasharray="3 13"/>
+<path d="M431 234l17 1-7 16" fill="none" stroke="#1769aa" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M447 130v120" stroke="#15324b" stroke-width="8" stroke-linecap="round"/><path d="M451 138h105l-22 29 22 29H451z" fill="#1769aa"/><path d="M451 205h76l-17 23 17 22h-76z" fill="#d8a93f"/>
+<circle cx="206" cy="180" r="18" fill="#d8a93f"/><path d="M190 201c-22 17-31 43-28 70l44 9 25-43-8-29z" fill="#1769aa"/><path d="M185 274l-14 34m42-30 15 29" stroke="#15324b" stroke-width="9" stroke-linecap="round"/><path d="M183 205l-27 26m54-28 20 19" stroke="#15324b" stroke-width="8" stroke-linecap="round"/>
+<circle cx="105" cy="92" r="5" fill="#1769aa"/><circle cx="134" cy="73" r="3" fill="#d8a93f"/><path d="M91 125l8-8 8 8-8 8z" fill="#d8a93f"/><path d="M290 76l7 13 14 2-10 10 2 14-13-7-13 7 2-14-10-10 14-2z" fill="#d8a93f" opacity=".9"/>
+<g transform="translate(287 205)"><circle cx="0" cy="0" r="28" fill="#fff" stroke="#15324b" stroke-width="5"/><path d="M-11-10l22 20m0-20-22 20" stroke="#d45b54" stroke-width="5" stroke-linecap="round"/><path d="M19 20l18 18" stroke="#15324b" stroke-width="7" stroke-linecap="round"/></g>
+</svg>
