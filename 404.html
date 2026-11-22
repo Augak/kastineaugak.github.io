@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="corporate-ui.css?v=20261113a">
   <style>
     .error-page{min-height:calc(100svh - 78px);display:grid;place-items:center;padding:clamp(32px,7vw,88px) 20px;background:#f8fafc}
-    .error-content{width:min(100%,760px);margin:0 auto;text-align:center}
+    .error-content{width:min(100%,760px);margin:0 auto;text-align:center}.error-illustration{display:block;width:min(100%,430px);height:auto;margin:0 auto 12px}.error-illustration img{display:block;width:100%;height:auto}
     .error-code{display:inline-block;margin:0 0 14px;color:#1769aa;font-size:clamp(4.5rem,15vw,8.5rem);font-weight:800;letter-spacing:-.085em;line-height:.95}
     .error-content h1{margin:0 auto 16px;max-width:650px;color:#0f172a;font-size:clamp(1.9rem,5vw,3.2rem);line-height:1.12;letter-spacing:-.04em}
     .error-intro{max-width:560px;margin:0 auto;color:#475569;font-size:1.05rem}
@@ -48,6 +48,7 @@
 
   <main id="main-content" class="error-page" tabindex="-1">
     <section class="error-content" aria-labelledby="error-title">
+      <img class="error-illustration" src="assets/illustrations/page-not-found.svg" width="640" height="360" alt="A signpost and a broken route illustrate a page that could not be found" fetchpriority="high">
       <p class="error-code" aria-label="Error 404">404</p>
       <h1 id="error-title">This page has wandered off.</h1>
       <p class="error-intro">The address may be incorrect, or the page may have moved. The rest of the site is still here — choose a place to continue.</p>
