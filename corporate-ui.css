@@ -437,3 +437,10 @@ body.theme-contact .card p {
 .admin-page main .admin-intro.ka-page-hero::after {
   z-index: 0;
 }
+
+
+/* Contextual SVG artwork for selected information cards */
+.ka-card-illustration{display:block;width:100%;max-width:240px;height:auto;aspect-ratio:8/5;object-fit:contain;margin:0 auto 1rem;border-radius:14px}
+.card:has(>.ka-card-illustration),.venture-card:has(>.ka-card-illustration){overflow:hidden}
+@media(min-width:700px){.venture-card>.ka-card-illustration{float:right;width:min(32%,220px);margin:0 0 1rem 1.25rem}}
+@media(prefers-reduced-motion:reduce){.ka-card-illustration{scroll-behavior:auto}}
