@@ -179,6 +179,10 @@
   section.setAttribute("aria-label","Kastine Augak online presence");
   section.style.cssText="max-width:1100px;margin:30px auto;padding:22px 20px;border-top:1px solid #dbe3ec;border-bottom:1px solid #dbe3ec;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px";
   section.innerHTML='<div><h2 style="font-size:1.05rem;line-height:1.3;margin:0 0 8px;color:#17345d">Building in public</h2><p style="margin:0 0 10px;color:#526174;font-size:.94rem">Follow the work, ideas and conversations.</p><div style="display:flex;flex-wrap:wrap;gap:16px"><a href="https://www.ibuildinpublic.com/kastineaugak?preview=public" target="_blank" rel="noopener noreferrer">iBuild in Public profile</a><a href="https://www.quora.com/profile/Kastine-Augak" target="_blank" rel="noopener noreferrer">Quora profile</a></div></div><a href="https://www.ibuildinpublic.com/kastineaugak?utm_source=embed&utm_medium=presence_badge&utm_campaign=kastineaugak" target="_blank" rel="noopener" aria-label="Kastine Augak on iBuild in Public" style="display:inline-block;max-width:100%"><img src="https://www.ibuildinpublic.com/api/embed/presence?entity=builder&username=kastineaugak&variant=auto&theme=light&size=md" alt="Kastine Augak on ibuildinpublic" width="280" height="54" loading="lazy" style="max-width:100%;height:auto"></a>';
+  var spaceLink=document.createElement("a");
+  spaceLink.href="quora-space.html";
+  spaceLink.textContent="Kastine Augak Quora Space";
+  section.querySelector("div").querySelector("div").appendChild(spaceLink);
   var footer=document.querySelector("footer");
   var main=document.querySelector("main");
   if(footer) footer.parentNode.insertBefore(section,footer);
