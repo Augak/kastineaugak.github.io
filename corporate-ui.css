@@ -444,3 +444,19 @@ body.theme-contact .card p {
 .card:has(>.ka-card-illustration),.venture-card:has(>.ka-card-illustration){overflow:hidden}
 @media(min-width:700px){.venture-card>.ka-card-illustration{float:right;width:min(32%,220px);margin:0 0 1rem 1.25rem}}
 @media(prefers-reduced-motion:reduce){.ka-card-illustration{scroll-behavior:auto}}
+
+/* Compact, non-intrusive navigation for the Media Hub. */
+body.theme-media-hub .ka-media-nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;gap:14px;padding:10px clamp(14px,4vw,48px);background:#10243d;border-bottom:1px solid rgba(255,255,255,.14);box-shadow:0 5px 22px rgba(10,25,44,.12)}
+body.theme-media-hub .ka-media-brand{color:#fff!important;text-decoration:none;font-weight:750;font-size:1.05rem;white-space:nowrap}
+body.theme-media-hub .ka-media-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:4px;margin-left:auto}
+body.theme-media-hub .ka-media-links a{display:inline-flex;align-items:center;min-height:40px;padding:8px 10px;border-radius:7px;color:#e3edf7!important;text-decoration:none;font-size:.85rem;font-weight:600}
+body.theme-media-hub .ka-media-links a:hover,body.theme-media-hub .ka-media-links a.active{background:rgba(255,255,255,.13);color:#fff!important}
+body.theme-media-hub .ka-media-nav .ka-nav-toggle{display:none}
+@media(max-width:900px){
+ body.theme-media-hub .ka-media-nav{flex-wrap:wrap;min-height:64px;padding:9px 14px}
+ body.theme-media-hub .ka-media-nav .ka-nav-toggle{display:inline-flex;margin-left:auto}
+ body.theme-media-hub .ka-media-links{display:none;order:3;flex:0 0 100%;width:100%;margin:0;padding:8px 0 2px;border-top:1px solid rgba(255,255,255,.15);align-items:stretch;flex-direction:column;gap:2px}
+ body.theme-media-hub .ka-media-links.is-open{display:flex}
+ body.theme-media-hub .ka-media-links a{width:100%;justify-content:flex-start;padding:10px 12px}
+}
+@media(max-width:820px){.navbar nav:not(.is-open){display:none!important}.navbar nav.is-open{display:flex!important}}
