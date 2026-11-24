@@ -110,3 +110,15 @@ if(document.body.classList.contains("theme-home")){
  }
 }
 })();
+
+/* Media Hub menu toggle: keeps the long primary navigation collapsed on small screens. */
+(function(){
+ "use strict";
+ var nav=document.querySelector(".ka-media-nav");if(!nav)return;
+ var button=nav.querySelector(".ka-nav-toggle"),links=nav.querySelector(".ka-media-links");if(!button||!links)return;
+ function close(){links.classList.remove("is-open");button.setAttribute("aria-expanded","false");}
+ button.addEventListener("click",function(){var open=button.getAttribute("aria-expanded")!=="true";button.setAttribute("aria-expanded",String(open));links.classList.toggle("is-open",open);});
+ links.addEventListener("click",function(e){if(e.target.closest("a"))close();});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape"&&button.getAttribute("aria-expanded")==="true"){close();button.focus();}});
+ window.addEventListener("resize",function(){if(window.matchMedia("(min-width: 901px)").matches)close();});
+})();
