@@ -2,23 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/about.html</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/blog/</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/connect.html</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/contact.html</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/contributors.html</loc>
@@ -28,7 +23,6 @@
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/media-hub.html</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/newsletter-archive.html</loc>
@@ -49,11 +43,13 @@
     <loc>https://augak.github.io/kastineaugak.github.io/privacy.html</loc>
   </url>
   <url>
-    <loc>https://augak.github.io/kastineaugak.github.io/sitemap.html</loc>
-    <lastmod>2026-11-24</lastmod>
+    <loc>https://augak.github.io/kastineaugak.github.io/quora-space.html</loc>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/search/</loc>
+  </url>
+  <url>
+    <loc>https://augak.github.io/kastineaugak.github.io/sitemap.html</loc>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/submit.html</loc>
@@ -63,17 +59,11 @@
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/ventures.html</loc>
-    <lastmod>2026-11-24</lastmod>
-  </url>
-  <url>
-    <loc>https://augak.github.io/kastineaugak.github.io/work.html</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/who-i-am.html</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
-    <loc>https://augak.github.io/kastineaugak.github.io/quora-space.html</loc>
+    <loc>https://augak.github.io/kastineaugak.github.io/work.html</loc>
   </url>
 </urlset>
