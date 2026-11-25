@@ -1,5 +1,8 @@
 /* Blog redesign: lightweight hero and compact progressive topic filters. */
-.blog-hero-media{margin:24px 0 22px;max-width:100%;overflow:hidden;border:1px solid #d9e3eb;border-radius:16px;background:#eaf1f6}
+.page-content{padding-top:22px;padding-bottom:44px}
+.blog-heading{padding-top:0}
+.blog-live{padding-top:10px}
+.blog-hero-media{margin:18px 0 16px;max-width:100%;overflow:hidden;border:1px solid #d9e3eb;border-radius:16px;background:#eaf1f6}
 .blog-hero-media img{display:block;width:100%;height:auto;max-height:360px;object-fit:cover;object-position:center}
 .blog-hero-media figcaption{padding:9px 14px;color:#536579;font-size:.82rem}
 .blog-categories{display:flex;flex-direction:column;gap:10px;margin:18px 0 26px}
@@ -14,4 +17,5 @@
 .blog-filter.is-active{border-color:#263f59;background:#e8eff5;color:#1d344b;font-weight:700}
 .blog-filter-extra{display:flex;flex-wrap:wrap;gap:8px;padding:13px;border:1px solid #dce5ec;border-radius:9px;background:#f7fafc}
 .blog-filter-extra[hidden]{display:none}
+@media(max-width:700px){.page-content{padding-top:16px;padding-bottom:32px}.blog-heading{padding-top:0}.blog-live{padding-top:8px}}
 @media(max-width:600px){.blog-hero-media{margin:18px 0;border-radius:11px}.blog-hero-media img{max-height:230px}.blog-filter-list{gap:7px}.blog-filter{min-height:38px;padding:7px 10px}}
