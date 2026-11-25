@@ -2,23 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/about.html</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/blog/</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/connect.html</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/contact.html</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/contributors.html</loc>
@@ -28,7 +23,6 @@
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/media-hub.html</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/newsletter-archive.html</loc>
@@ -40,7 +34,31 @@
     <loc>https://augak.github.io/kastineaugak.github.io/posts/africa-s-digital-future-needs-delivery-not-another-strategy-launch-62368105.html</loc>
   </url>
   <url>
+    <loc>https://augak.github.io/kastineaugak.github.io/posts/bob-kamel-africas-ai-language-gap-is-a-product-opportunity.html</loc>
+  </url>
+  <url>
+    <loc>https://augak.github.io/kastineaugak.github.io/posts/bob-kamel-ai-agents-need-a-harness-not-just-a-better-model.html</loc>
+  </url>
+  <url>
     <loc>https://augak.github.io/kastineaugak.github.io/posts/building-useful-affordable-digital-products-east-africa.html</loc>
+  </url>
+  <url>
+    <loc>https://augak.github.io/kastineaugak.github.io/posts/johnson-martinez-api-security-begins-with-authorization.html</loc>
+  </url>
+  <url>
+    <loc>https://augak.github.io/kastineaugak.github.io/posts/johnson-martinez-uganda-data-protection-reporting-deadline-what-to-check.html</loc>
+  </url>
+  <url>
+    <loc>https://augak.github.io/kastineaugak.github.io/posts/josh-diklan-ai-coding-agents-still-need-software-engineers.html</loc>
+  </url>
+  <url>
+    <loc>https://augak.github.io/kastineaugak.github.io/posts/josh-diklan-offline-first-web-apps-build-for-real-connections.html</loc>
+  </url>
+  <url>
+    <loc>https://augak.github.io/kastineaugak.github.io/posts/slivia-hellens-africas-mobile-internet-gap-is-a-business-design-challenge.html</loc>
+  </url>
+  <url>
+    <loc>https://augak.github.io/kastineaugak.github.io/posts/slivia-hellens-from-ai-prototype-to-paying-customer.html</loc>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/posts/uganda-s-national-data-strategy-the-real-test-begins-after-the-launch-8c4436f1.html</loc>
@@ -49,11 +67,13 @@
     <loc>https://augak.github.io/kastineaugak.github.io/privacy.html</loc>
   </url>
   <url>
-    <loc>https://augak.github.io/kastineaugak.github.io/sitemap.html</loc>
-    <lastmod>2026-11-24</lastmod>
+    <loc>https://augak.github.io/kastineaugak.github.io/quora-space.html</loc>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/search/</loc>
+  </url>
+  <url>
+    <loc>https://augak.github.io/kastineaugak.github.io/sitemap.html</loc>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/submit.html</loc>
@@ -63,17 +83,11 @@
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/ventures.html</loc>
-    <lastmod>2026-11-24</lastmod>
-  </url>
-  <url>
-    <loc>https://augak.github.io/kastineaugak.github.io/work.html</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/who-i-am.html</loc>
-    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
-    <loc>https://augak.github.io/kastineaugak.github.io/quora-space.html</loc>
+    <loc>https://augak.github.io/kastineaugak.github.io/work.html</loc>
   </url>
 </urlset>
