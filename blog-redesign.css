@@ -1,0 +1,17 @@
+/* Blog redesign: lightweight hero and compact progressive topic filters. */
+.blog-hero-media{margin:24px 0 22px;max-width:100%;overflow:hidden;border:1px solid #d9e3eb;border-radius:16px;background:#eaf1f6}
+.blog-hero-media img{display:block;width:100%;height:auto;max-height:360px;object-fit:cover;object-position:center}
+.blog-hero-media figcaption{padding:9px 14px;color:#536579;font-size:.82rem}
+.blog-categories{display:flex;flex-direction:column;gap:10px;margin:18px 0 26px}
+.blog-filter-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.blog-filter-heading{font-size:.9rem;font-weight:700;color:#34485d}
+.blog-filter-toggle{display:inline-flex;align-items:center;gap:9px;min-height:42px;padding:8px 15px;border:1px solid #263f59;border-radius:7px;background:#263f59;color:#fff;font:inherit;font-size:.9rem;font-weight:650;cursor:pointer}
+.blog-filter-toggle:hover{background:#1c3045}
+.blog-filter-toggle:focus-visible,.blog-filter:focus-visible{outline:3px solid #d49a3b;outline-offset:3px}
+.blog-filter-list{display:flex;flex-wrap:wrap;gap:8px}
+.blog-filter{display:inline-flex;align-items:center;min-height:36px;padding:6px 12px;border:1px solid #d4dee7;border-radius:6px;background:#fff;color:#30465b;text-decoration:none;font-size:.84rem;line-height:1.3}
+.blog-filter:hover{border-color:#607e98;background:#f2f6f9}
+.blog-filter.is-active{border-color:#263f59;background:#e8eff5;color:#1d344b;font-weight:700}
+.blog-filter-extra{display:flex;flex-wrap:wrap;gap:8px;padding:13px;border:1px solid #dce5ec;border-radius:9px;background:#f7fafc}
+.blog-filter-extra[hidden]{display:none}
+@media(max-width:600px){.blog-hero-media{margin:18px 0;border-radius:11px}.blog-hero-media img{max-height:230px}.blog-filter-list{gap:7px}.blog-filter{min-height:38px;padding:7px 10px}}
