@@ -15,6 +15,8 @@
   <meta property="og:title" content="Who Is Kastine Augak?">
   <meta property="og:description" content="Official identity profile for Kastine Augak (Kamulindwa Augustine), software developer and technology entrepreneur in Uganda.">
   <meta property="og:url" content="https://augak.github.io/kastineaugak.github.io/who-i-am.html">
+  <meta property="og:image" content="https://augak.github.io/kastineaugak.github.io/assets/kastine-augak-portrait.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -26,6 +28,7 @@
       "@type": "Person",
       "@id": "https://augak.github.io/kastineaugak.github.io/#person",
       "name": "Kastine Augak",
+      "image": "https://augak.github.io/kastineaugak.github.io/assets/kastine-augak-portrait.jpg",
       "alternateName": ["Kamulindwa Augustine", "Augustine Kamulindwa"],
       "url": "https://augak.github.io/kastineaugak.github.io/",
       "description": "Kastine Augak, also known as Kamulindwa Augustine, is a Ugandan software developer and technology entrepreneur whose work and interests include software engineering, applied artificial intelligence, education technology, digital products and digital media.",
@@ -70,65 +73,69 @@
   }
   </script>
   <style>
-    :root{color-scheme:light;--ink:#172033;--muted:#536176;--line:#dce3ec;--paper:#fff;--soft:#f4f7fb;--accent:#174ea6}
+
+    :root{--ink:#172033;--muted:#536176;--line:#dce3ec;--paper:#fff;--soft:#f4f7fb;--accent:#174ea6;--navy:#101827;--gold:#d7b65e}
     *{box-sizing:border-box}
-    body{margin:0;background:var(--soft);color:var(--ink);font:16px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
-    header{background:#101827;color:#fff;padding:16px 22px}
-    nav{max-width:900px;margin:auto;display:flex;flex-wrap:wrap;gap:18px}
-    nav a{color:#e6edf7;text-decoration:none}
-    nav a:focus,nav a:hover{text-decoration:underline}
-    main{max-width:900px;margin:36px auto;padding:0 18px}
-    article{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:clamp(22px,5vw,48px)}
-    h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:0 0 12px}
-    h2{font-size:1.25rem;margin:30px 0 8px}
-    p{margin:10px 0}
+    body{margin:0;background:var(--soft);color:var(--ink);font:16px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding-bottom:0}
+    .skip-link{position:absolute;left:12px;top:-60px;z-index:1000;background:#fff;color:#10233f;padding:10px 14px;border-radius:6px}.skip-link:focus{top:10px}
+    .site-header{position:sticky;top:0;z-index:100;background:rgba(16,24,39,.97);color:#fff;box-shadow:0 5px 18px rgba(16,24,39,.14);backdrop-filter:blur(12px)}
+    .site-brand{min-height:72px;display:flex;align-items:center;gap:12px;padding:10px max(20px,calc((100% - 1160px)/2));color:#fff;text-decoration:none;float:left}
+    .brand-mark{display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--gold);border-radius:10px;color:var(--gold);font-weight:800;letter-spacing:-2px}
+    .site-brand strong,.site-brand small{display:block;line-height:1.35}.site-brand strong{font-size:1rem}.site-brand small{font-size:.7rem;color:#b9c6d8}
+    .primary-navigation{max-width:1160px;margin:auto;min-height:72px;display:flex;align-items:center;justify-content:flex-end;gap:4px;padding:10px 20px}
+    .primary-navigation a{display:inline-flex;align-items:center;min-height:42px;padding:8px 11px;border-radius:6px;color:#dbe5f1;text-decoration:none;font-size:.88rem;font-weight:600;white-space:nowrap}
+    .primary-navigation a:hover,.primary-navigation a:focus-visible{background:#26364d;color:#fff;outline:2px solid var(--gold);outline-offset:2px}
+    .primary-navigation a.active{background:#253a56;color:#fff;box-shadow:inset 0 -2px var(--gold)}
+    .menu-toggle{display:none}
+    main{max-width:1000px;margin:34px auto;padding:0 20px}
+    article{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:clamp(22px,5vw,48px);box-shadow:0 10px 28px rgba(16,24,39,.045)}
+    h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:0 0 12px}h2{font-size:1.25rem;margin:30px 0 8px}p{margin:10px 0}
     .lead{font-size:1.12rem;color:var(--muted)}
-    .links{display:flex;flex-wrap:wrap;gap:10px 18px;padding:0;list-style:none}
-    a{color:var(--accent)}
-    footer{max-width:900px;margin:0 auto;padding:0 18px 36px;color:var(--muted);font-size:.92rem}
+    .profile-portrait{width:min(100%,360px);margin:24px 0 30px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 28px rgba(16,24,39,.1)}
+    .profile-portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 24%;border-radius:8px}
+    .profile-portrait figcaption{padding:12px 5px 3px;color:var(--muted);font-size:.88rem;line-height:1.5}
+    .profile-portrait figcaption strong{color:var(--ink)}
+    .links{display:flex;flex-wrap:wrap;gap:10px 18px;padding:0;list-style:none}a{color:var(--accent)}
     .note{border-left:3px solid var(--accent);padding:10px 14px;background:#f4f7fb}
     .social-icon-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;padding:0;margin:16px 0;list-style:none}
     .social-icon-list a{display:flex;align-items:center;gap:10px;min-height:48px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);text-decoration:none;font-weight:600}
     .social-icon-list a:hover,.social-icon-list a:focus-visible{border-color:var(--accent);background:#f2f6fc;outline:2px solid transparent}
-    .social-icon-list svg{width:22px;height:22px;flex:none;color:#174ea6}
-    .other-profiles{font-size:.94rem;color:var(--muted)}
+    .social-icon-list svg{width:22px;height:22px;flex:none;color:#174ea6}.other-profiles{font-size:.94rem;color:var(--muted)}
+    .site-footer{max-width:1000px;margin:0 auto;padding:26px 20px 40px;color:var(--muted);font-size:.9rem}.site-footer>div{padding-bottom:12px;border-bottom:1px solid var(--line)}.site-footer nav{display:flex;flex-wrap:wrap;gap:8px 20px;padding:16px 0}.site-footer nav a{color:#334e70;text-decoration:none;font-weight:600}.site-footer nav a:hover{text-decoration:underline}.copyright{font-size:.82rem}
+    .mobile-bottom-nav{display:none}
+    @media(max-width:820px){
+      body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+      .site-header{min-height:66px;display:flex;align-items:center;justify-content:space-between;padding-right:14px}
+      .site-brand{float:none;min-height:66px;padding:8px 16px}
+      .brand-mark{width:38px;height:38px}
+      .menu-toggle{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:8px 12px;border:1px solid #50617a;border-radius:8px;background:#1c2b40;color:#fff;font:600 .9rem system-ui;cursor:pointer}
+      .menu-icon{display:grid;gap:4px}.menu-icon i{display:block;width:17px;height:2px;background:currentColor;border-radius:2px}
+      .primary-navigation{display:none;position:absolute;top:100%;left:0;right:0;max-width:none;min-height:0;padding:10px 14px 16px;background:#101827;border-top:1px solid #334155;box-shadow:0 12px 20px rgba(0,0,0,.2);grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+      .primary-navigation.is-open{display:grid}.primary-navigation a{white-space:normal;min-height:44px;padding:10px 12px}
+      main{margin:20px auto;padding:0 14px}article{padding:22px 18px}
+      .identity-banner{grid-template-columns:1fr;gap:10px;padding:24px 20px}.banner-art{width:138px;justify-self:start;grid-row:1}.banner-caption{text-align:left}
+      .mobile-bottom-nav{position:fixed;z-index:120;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);padding:7px 6px calc(7px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid #d8e0ea;box-shadow:0 -5px 20px rgba(16,24,39,.1);backdrop-filter:blur(14px)}
+      .mobile-bottom-nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:48px;color:#536176;text-decoration:none;border-radius:8px}
+      .mobile-bottom-nav a span{font-size:1.18rem;line-height:1.2}.mobile-bottom-nav a small{font-size:.68rem;font-weight:650}
+      .mobile-bottom-nav a[aria-current=page]{color:#123d6c;background:#edf3fa}.mobile-bottom-nav a:focus-visible{outline:2px solid #174ea6;outline-offset:-2px}
+      .site-footer{padding-bottom:24px}
+    }
+    @media(min-width:821px) and (max-width:1120px){.site-brand{padding-left:20px}.primary-navigation{gap:0;padding-right:12px}.primary-navigation a{padding:8px 7px;font-size:.82rem}}
     @media(max-width:480px){.social-icon-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-  
-    .identity-banner{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(180px,.65fr);align-items:center;gap:24px;margin:0 0 24px;padding:clamp(26px,5vw,48px);border:1px solid #243c5c;border-radius:18px;background:linear-gradient(118deg,#101827 0%,#18345a 68%,#23466b 100%);color:#fff;box-shadow:0 14px 34px rgba(16,24,39,.13)}
-    .identity-banner:before{content:"";position:absolute;z-index:-1;width:340px;height:340px;right:-115px;top:-175px;border:1px solid rgba(255,255,255,.15);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.035),0 0 0 58px rgba(255,255,255,.025)}
-    .identity-kicker{display:inline-flex;align-items:center;gap:9px;margin:0 0 12px;color:#f0cf78;font-size:.76rem;font-weight:750;letter-spacing:.16em;text-transform:uppercase}
-    .identity-kicker:before{content:"";width:22px;height:2px;background:#d7b65e}
-    .identity-banner h1{max-width:680px;margin:0 0 10px;color:#fff;font-size:clamp(2.2rem,6vw,4.2rem);letter-spacing:-.045em;line-height:1.02}
-    .identity-banner .banner-subtitle{margin:0;color:#dce8f7;font-size:clamp(1rem,2.2vw,1.24rem);font-weight:550;letter-spacing:.015em}
-    .identity-banner .banner-summary{max-width:620px;margin:16px 0 22px;color:#e1e8f1;font-size:1rem;line-height:1.65}
-    .banner-actions{display:flex;flex-wrap:wrap;gap:10px}
-    .banner-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 17px;border:1px solid rgba(255,255,255,.38);border-radius:7px;color:#fff;text-decoration:none;font-size:.92rem;font-weight:700}
-    .banner-actions a:first-child{border-color:#d7b65e;background:#d7b65e;color:#172033}
-    .banner-actions a:hover,.banner-actions a:focus-visible{outline:2px solid #fff;outline-offset:3px}
-    .banner-art{width:100%;max-width:250px;justify-self:center;height:auto}
-    .banner-caption{margin:12px 0 0;color:#c8d7e8;font-size:.78rem;text-align:center;letter-spacing:.08em;text-transform:uppercase}
-    @media(max-width:620px){.identity-banner{grid-template-columns:1fr;gap:10px}.banner-art{width:138px;justify-self:start;grid-row:1}.banner-caption{text-align:left}.identity-banner h1{font-size:clamp(2.25rem,12vw,3.3rem)}}
-    @media(prefers-reduced-motion:reduce){.identity-banner *{scroll-behavior:auto!important;transition:none!important}}
-
   </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://augak.github.io/kastineaugak.github.io/"},{"@type":"ListItem","position":2,"name":"Who I Am","item":"https://augak.github.io/kastineaugak.github.io/who-i-am.html"}]}</script>
 </head>
 <body>
-  <header>
-    <nav aria-label="Primary navigation">
-      <a href="index.html">Home</a>
-      <a href="who-i-am.html" class="active" aria-current="page">Who I Am</a>
-      <a href="about.html">About</a>
-      <a href="ventures.html">Ventures</a>
-      <a href="work.html">Selected Work</a>
-      <a href="connect.html">Connect</a>
-      <a href="blog.html">Articles & Research</a>
-      <a href="media-hub.html">Media Hub</a>
-      <a href="contact.html">Contact</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <a class="site-brand" href="index.html" aria-label="Kastine Augak home"><span class="brand-mark">KA</span><span><strong>Kastine Augak</strong><small>Technology · Innovation · Digital Media</small></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"><span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-label">Menu</span></button>
+    <nav id="primary-navigation" class="primary-navigation" aria-label="Primary navigation">
+      <a href="index.html">Home</a><a href="who-i-am.html" class="active" aria-current="page">Who I Am</a><a href="about.html">About</a><a href="ventures.html">Ventures</a><a href="work.html">Work</a><a href="blog.html">Articles</a><a href="connect.html">Connect</a><a href="contact.html">Contact</a>
     </nav>
   </header>
-  <main>
+  <main id="main-content">
 
     <section class="identity-banner" aria-labelledby="identity-banner-title">
       <div class="banner-copy">
@@ -161,6 +168,10 @@
     <article>
       <h1>Who is Kastine Augak?</h1>
       <p class="lead"><strong>Kastine Augak</strong> is the professional name of <strong>Kamulindwa Augustine</strong>, a Ugandan software developer and technology entrepreneur.</p>
+      <figure class="profile-portrait">
+        <img src="assets/kastine-augak-portrait.jpg" alt="Portrait of Kastine Augak, also known as Kamulindwa Augustine, seated in a modern office wearing a red shirt." width="360" height="450" fetchpriority="high">
+        <figcaption><strong>Kastine Augak</strong> (Kamulindwa Augustine) · Ugandan software developer and technology entrepreneur.</figcaption>
+      </figure>
 
       <h2>Professional identity</h2>
       <p>His work and interests include software engineering, applied artificial intelligence, education technology, web application development, digital products and digital media. His public work focuses on practical technology and locally relevant digital solutions.</p>
@@ -191,7 +202,17 @@
       <p class="note">This page focuses on identity details that can be connected to public profiles and first-party sources. Specific qualifications, awards, employment dates and project outcomes are not stated here unless they can be supported by reliable evidence.</p>
     </article>
   </main>
-  <footer>Official identity profile · <a href="./">Kastine Augak</a></footer>
+  <footer class="site-footer"><div><strong>Kastine Augak</strong><p>Technology · Innovation · Digital Media</p></div><nav aria-label="Footer navigation"><a href="who-i-am.html" aria-current="page">Who I Am</a><a href="work.html">Work</a><a href="blog.html">Articles</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></nav><p class="copyright">© 2026 Kastine Augak. All rights reserved.</p></footer>
+  <nav class="mobile-bottom-nav" aria-label="Quick navigation">
+    <a href="index.html"><span aria-hidden="true">⌂</span><small>Home</small></a>
+    <a href="who-i-am.html" aria-current="page"><span aria-hidden="true">◎</span><small>Who I Am</small></a>
+    <a href="work.html"><span aria-hidden="true">▤</span><small>Work</small></a>
+    <a href="blog.html"><span aria-hidden="true">▧</span><small>Articles</small></a>
+    <a href="contact.html"><span aria-hidden="true">✉</span><small>Contact</small></a>
+  </nav>
+<script>
+(function(){const btn=document.querySelector('.menu-toggle');const nav=document.querySelector('#primary-navigation');if(!btn||!nav)return;function close(){nav.classList.remove('is-open');btn.setAttribute('aria-expanded','false')}btn.addEventListener('click',()=>{const open=btn.getAttribute('aria-expanded')!=='true';btn.setAttribute('aria-expanded',String(open));nav.classList.toggle('is-open',open)});nav.addEventListener('click',e=>{if(e.target.closest('a'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&btn.getAttribute('aria-expanded')==='true'){close();btn.focus()}});window.addEventListener('resize',()=>{if(window.matchMedia('(min-width:821px)').matches)close()})})();
+</script>
 <script src="site-enhancements.js?v=20261123a" defer></script>
 </body>
 </html>
