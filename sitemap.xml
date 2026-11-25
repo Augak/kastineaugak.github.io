@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/</loc>
   </url>
@@ -35,30 +35,38 @@
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/posts/bob-kamel-africas-ai-language-gap-is-a-product-opportunity.html</loc>
+    <image:image><image:loc>https://augak.github.io/kastineaugak.github.io/assets/article-ai-language-gap.svg</image:loc><image:title>Africa’s AI Language Gap Is a Product Opportunity</image:title></image:image>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/posts/bob-kamel-ai-agents-need-a-harness-not-just-a-better-model.html</loc>
+    <image:image><image:loc>https://augak.github.io/kastineaugak.github.io/assets/article-ai-agent-harness.svg</image:loc><image:title>AI Agents Need a Harness, Not Just a Better Model</image:title></image:image>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/posts/building-useful-affordable-digital-products-east-africa.html</loc>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/posts/johnson-martinez-api-security-begins-with-authorization.html</loc>
+    <image:image><image:loc>https://augak.github.io/kastineaugak.github.io/assets/article-api-authorization.svg</image:loc><image:title>API Security Begins with Who Can Access Which Record</image:title></image:image>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/posts/johnson-martinez-uganda-data-protection-reporting-deadline-what-to-check.html</loc>
+    <image:image><image:loc>https://augak.github.io/kastineaugak.github.io/assets/article-uganda-data-protection.svg</image:loc><image:title>Uganda’s Data Protection Reporting Deadline</image:title></image:image>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/posts/josh-diklan-ai-coding-agents-still-need-software-engineers.html</loc>
+    <image:image><image:loc>https://augak.github.io/kastineaugak.github.io/assets/article-ai-coding-engineers.svg</image:loc><image:title>AI Coding Agents Still Need Software Engineers</image:title></image:image>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/posts/josh-diklan-offline-first-web-apps-build-for-real-connections.html</loc>
+    <image:image><image:loc>https://augak.github.io/kastineaugak.github.io/assets/article-offline-first-apps.svg</image:loc><image:title>Offline-First Web Apps</image:title></image:image>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/posts/slivia-hellens-africas-mobile-internet-gap-is-a-business-design-challenge.html</loc>
+    <image:image><image:loc>https://augak.github.io/kastineaugak.github.io/assets/article-mobile-internet-gap.svg</image:loc><image:title>Africa’s Mobile Internet Gap Is a Business Design Challenge</image:title></image:image>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/posts/slivia-hellens-from-ai-prototype-to-paying-customer.html</loc>
+    <image:image><image:loc>https://augak.github.io/kastineaugak.github.io/assets/article-ai-prototype-to-customer.svg</image:loc><image:title>From AI Prototype to Paying Customer</image:title></image:image>
   </url>
   <url>
     <loc>https://augak.github.io/kastineaugak.github.io/posts/uganda-s-national-data-strategy-the-real-test-begins-after-the-launch-8c4436f1.html</loc>
